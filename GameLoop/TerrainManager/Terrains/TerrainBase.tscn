@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cm6fnq0vnkij4"]
+
+[ext_resource type="Script" uid="uid://bdnoagnt1atyj" path="res://GameLoop/TerrainManager/Terrains/TerrainBase.gd" id="1_ya3uc"]
+
+[node name="TerrainBase" type="Polygon2D" unique_id=738475140]
+color = Color(1, 1, 1, 0.28235295)
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+script = ExtResource("1_ya3uc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2084861097]
+
+[node name="Visual" type="Node2D" parent="StaticBody2D" unique_id=422527162]
+unique_name_in_owner = true
+
+[node name="VisualPolygon2D" type="Polygon2D" parent="StaticBody2D/Visual" unique_id=2021273492]
+unique_name_in_owner = true
+color = Color(0.14509805, 0.16078432, 0.19215687, 1)
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+
+[node name="VisualPolyLine" type="Line2D" parent="StaticBody2D/Visual" unique_id=265850612]
+unique_name_in_owner = true
+closed = true
+
+[node name="CollidePolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=411758791]
+unique_name_in_owner = true
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://buhurx5skmo45"]
+
+[ext_resource type="PackedScene" uid="uid://5das1ci2y2fy" path="res://GameLoop/GameLoop.tscn" id="1_8twhv"]
+[ext_resource type="PackedScene" uid="uid://dx1m56xp06hwg" path="res://GameLoop/TerrainManager/Terrains/Rock/TerrainRock.tscn" id="2_sxagu"]
+
+[node name="Level1" unique_id=1934627509 instance=ExtResource("1_8twhv")]
+
+[node name="TerrainRock" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="0" unique_id=1422216466 instance=ExtResource("2_sxagu")]
+position = Vector2(-2, 16)
+polygon = PackedVector2Array(-22, 8, 2, 8, 42, 8, 58, 40, -46, 72, -110, 40, -94, 0, -62, 0)
+
+[node name="TerrainRock2" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="1" unique_id=520776126 instance=ExtResource("2_sxagu")]
+position = Vector2(-120, -16)
+polygon = PackedVector2Array(8, 80, 24, 32, 0, 16, -40, 0, -80, 0, -112, 48, -80, 88)
+
+[node name="TerrainRock3" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="2" unique_id=742800073 instance=ExtResource("2_sxagu")]
+position = Vector2(144, 32)
+polygon = PackedVector2Array(48, -24, 88, -16, 104, 24, 56, 64, 0, 64, -112, 64, -104, -8, 16, -32)
+
+[node name="TerrainRock4" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="3" unique_id=1878025663 instance=ExtResource("2_sxagu")]
+position = Vector2(-248, -72)
+polygon = PackedVector2Array(-144, -64, -48, -80, 0, -24, 48, 0, 64, 24, 40, 56, -16, 96, -104, 96, -152, 24)
+
+[node name="TerrainRock" parent="." index="2" unique_id=2133717021 instance=ExtResource("2_sxagu")]
+position = Vector2(-233.42532, -227.30861)
+
+[node name="TerrainRock2" parent="." index="3" unique_id=1419156349 instance=ExtResource("2_sxagu")]
+position = Vector2(-453.8524, -226.06668)
+polygon = PackedVector2Array(-138.14761, 10.066681, -66.14761, -125.93332, 37.852386, -125.93332, 109.85239, -45.93332, 109.85239, 82.06668, -58.147614, 138.06668)

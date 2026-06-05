@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b40p7wbigl1ko"]
+
+[ext_resource type="Script" uid="uid://cie88ie3irglr" path="res://GameLoop/PlayerManager/player/player.gd" id="1_5x51k"]
+[ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="1_l0b4j"]
+[ext_resource type="PackedScene" uid="uid://cpj743b8wkm61" path="res://GameLoop/PlayerManager/player/Hand/rigid_hand.tscn" id="3_y5mga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x51k"]
+size = Vector2(32, 30)
+
+[node name="Player" type="Node2D" unique_id=371283019]
+script = ExtResource("1_5x51k")
+手臂半徑 = 56.0
+輸入死區 = 0.12
+距離約束迭代 = 4
+目標跟隨速度 = 14.0
+揮手力道 = 780.0
+揮手阻尼 = 58.0
+最大力道 = 2400.0
+手部下墜力 = 85.0
+身體反作用 = 0.75
+接觸反作用倍率 = 1.05
+抓取力道倍率 = 0.08
+抓取阻尼 = 34.0
+抓取切線阻尼 = 10.0
+
+[node name="RigidBody" type="RigidBody2D" parent="." unique_id=112019043]
+unique_name_in_owner = true
+collision_layer = 0
+angular_damp = 5.0
+
+[node name="Icon" type="Sprite2D" parent="RigidBody" unique_id=886277661]
+position = Vector2(0, -1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_l0b4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody" unique_id=1791026484]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_5x51k")
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody" unique_id=1089404847]
+zoom = Vector2(2.89, 2.89)
+
+[node name="RigidHandL" parent="." unique_id=140860852 instance=ExtResource("3_y5mga")]
+unique_name_in_owner = true
+position = Vector2(-50, 0)
+
+[node name="RigidHandR" parent="." unique_id=896699419 instance=ExtResource("3_y5mga")]
+unique_name_in_owner = true
+position = Vector2(49, 0)

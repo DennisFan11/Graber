@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ds3f4gb0favoh"]
+
+[ext_resource type="Script" uid="uid://u7v3c0x5gbv6" path="res://GameLoop/TerrainManager/TerrainManager.gd" id="1_jhc13"]
+
+[node name="TerrainManager" type="Node2D" unique_id=1889502423]
+script = ExtResource("1_jhc13")

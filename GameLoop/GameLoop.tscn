@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://5das1ci2y2fy"]
+
+[ext_resource type="PackedScene" uid="uid://ds3f4gb0favoh" path="res://GameLoop/TerrainManager/TerrainManager.tscn" id="1_3fct8"]
+[ext_resource type="PackedScene" uid="uid://dddarmcyhm6i7" path="res://GameLoop/PlayerManager/PlayerManager.tscn" id="2_rr7t6"]
+
+[node name="GameLoop" type="Node2D" unique_id=1934627509]
+
+[node name="TerrainManager" parent="." unique_id=1889502423 instance=ExtResource("1_3fct8")]
+
+[node name="PlayerManager" parent="." unique_id=1325859206 instance=ExtResource("2_rr7t6")]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cpj743b8wkm61"]
+
+[ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="1_ds3h0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ds3h0"]
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ds3h0"]
+size = Vector2(8, 8)
+
+[node name="RigidHand" type="RigidBody2D" unique_id=896699419]
+collision_layer = 0
+collision_priority = 999.0
+physics_material_override = SubResource("PhysicsMaterial_ds3h0")
+mass = 1.45
+gravity_scale = 1.15
+lock_rotation = true
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 8
+linear_damp = 1.35
+angular_damp = 3.0
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1753480607]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("1_ds3h0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1479295178]
+shape = SubResource("RectangleShape2D_ds3h0")
