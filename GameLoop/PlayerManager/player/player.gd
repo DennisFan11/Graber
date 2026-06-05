@@ -1,10 +1,12 @@
 extends Node2D
 
+const RigidHand = preload("res://GameLoop/PlayerManager/player/Hand/rigid_hand.gd")
+
 @export_group("手臂")
 @export var 手臂半徑: float = 56.0
 @export var 輸入死區: float = 0.12
 @export var 距離約束迭代: int = 4
-@export var 目標跟隨速度: float = 14.0
+@export var 目標跟隨速度: float = 28.0
 
 @export_group("手部力道")
 @export var 揮手力道: float = 780.0
@@ -19,11 +21,20 @@ extends Node2D
 @export var 抓取阻尼: float = 34.0
 @export var 抓取切線阻尼: float = 10.0
 
-@onready var body: RigidBody2D = $RigidBody
-@onready var hand_l: RigidBody2D = $RigidHandL
-@onready var hand_r: RigidBody2D = $RigidHandR
+@export_group("Body Upright")
+@export var body_upright_torque: float = 1600.0
+@export var body_upright_damping: float = 10.0
+@export var max_body_upright_torque: float = 4800.0
 
-var hands: Array[RigidBody2D] = []
+@export_group("Grab Vibration")
+@export var wall_grab_vibration_strength: float = 2.0
+@export var wall_grab_vibration_duration: float = 0.1
+
+@onready var body: RigidBody2D = $RigidBody
+@onready var hand_l: RigidHand = $RigidHandL
+@onready var hand_r: RigidHand = $RigidHandR
+
+var hands: Array[RigidHand] = []
 var targets = [Vector2.ZERO, Vector2.ZERO]
 var smooth_targets = [Vector2.ZERO, Vector2.ZERO]
 var grabbed = [false, false]
@@ -32,6 +43,7 @@ var grab_pos = [Vector2.ZERO, Vector2.ZERO]
 
 func _ready():
 	apply_safe_defaults()
+	apply_body_upright_defaults()
 	hands = [hand_l, hand_r]
 
 	for i in range(hands.size()):
@@ -59,8 +71,18 @@ func apply_safe_defaults():
 		抓取切線阻尼 = 10.0
 
 
+func apply_body_upright_defaults():
+	if body_upright_torque < 0.0:
+		body_upright_torque = 850.0
+	if body_upright_damping < 0.0:
+		body_upright_damping = 70.0
+	if max_body_upright_torque <= 0.0:
+		max_body_upright_torque = 2400.0
+
+
 func _physics_process(delta):
 	var center = body.global_position
+	apply_body_upright_torque()
 
 	for i in range(hands.size()):
 		var hand = hands[i]
@@ -75,7 +97,14 @@ func _physics_process(delta):
 			limit_arm_distance_hard(hands[i], grabbed[i])
 
 
-func update_target(i: int, hand: RigidBody2D, input_vec: Vector2, center: Vector2, delta: float):
+func apply_body_upright_torque():
+	var angle_error := wrapf(body.rotation, -PI, PI)
+	var torque := -angle_error * body_upright_torque
+	torque -= body.angular_velocity * body_upright_damping
+	body.apply_torque(clamp(torque, -max_body_upright_torque, max_body_upright_torque))
+
+
+func update_target(i: int, hand: RigidHand, input_vec: Vector2, center: Vector2, delta: float):
 	if grabbed[i]:
 		targets[i] = grab_pos[i]
 		smooth_targets[i] = grab_pos[i]
@@ -95,7 +124,7 @@ func update_target(i: int, hand: RigidBody2D, input_vec: Vector2, center: Vector
 	)
 
 
-func update_grab_state(i: int, hand: RigidBody2D):
+func update_grab_state(i: int, hand: RigidHand):
 	var action_name = "L_GRAB" if i == 0 else "R_GRAB"
 	var pressing = Input.is_action_pressed(action_name)
 
@@ -103,33 +132,65 @@ func update_grab_state(i: int, hand: RigidBody2D):
 		grabbed[i] = true
 		grab_pos[i] = hand.global_position
 		smooth_targets[i] = grab_pos[i]
+		set_hand_grab_type(i, hand, RigidHand.GRAB_TYPE.WALL_GRAB)
 		lock_hand(hand, grab_pos[i])
 	elif not pressing and grabbed[i]:
 		grabbed[i] = false
+		set_hand_grab_type(i, hand, RigidHand.GRAB_TYPE.IDLE)
 		unlock_hand(hand)
+	elif pressing:
+		var grab_type = RigidHand.GRAB_TYPE.WALL_GRAB if grabbed[i] else RigidHand.GRAB_TYPE.AIR_GRAB
+		set_hand_grab_type(i, hand, grab_type)
+	else:
+		set_hand_grab_type(i, hand, RigidHand.GRAB_TYPE.IDLE)
 
 
-func lock_hand(hand: RigidBody2D, pos: Vector2):
+func set_hand_grab_type(i: int, hand: RigidHand, grab_type: int):
+	var was_wall_grab = hand.grab_type == RigidHand.GRAB_TYPE.WALL_GRAB
+	hand.grab_type = grab_type
+
+	if not was_wall_grab and grab_type == RigidHand.GRAB_TYPE.WALL_GRAB:
+		start_wall_grab_vibration(i)
+
+
+func start_wall_grab_vibration(hand_index: int):
+	if wall_grab_vibration_strength <= 0.0 or wall_grab_vibration_duration <= 0.0:
+		return
+
+	var strength = clamp(wall_grab_vibration_strength, 0.0, 1.0)
+	var weak_strength = strength if hand_index == 0 else 0.0
+	var strong_strength = strength if hand_index == 1 else 0.0
+
+	for device in Input.get_connected_joypads():
+		Input.start_joy_vibration(
+			device,
+			weak_strength,
+			strong_strength,
+			wall_grab_vibration_duration
+		)
+
+
+func lock_hand(hand: RigidHand, pos: Vector2):
 	lock_hand_position(hand, pos)
 	hand.gravity_scale = 0.0
 	hand.freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
 	hand.freeze = true
 
 
-func lock_hand_position(hand: RigidBody2D, pos: Vector2):
+func lock_hand_position(hand: RigidHand, pos: Vector2):
 	hand.global_position = pos
 	hand.linear_velocity = Vector2.ZERO
 	hand.angular_velocity = 0.0
 
 
-func unlock_hand(hand: RigidBody2D):
+func unlock_hand(hand: RigidHand):
 	hand.freeze = false
 	hand.gravity_scale = hand.get_meta("gravity_scale", 1.0)
 	hand.linear_velocity = body.linear_velocity
 
 
 func move_hand(
-	hand: RigidBody2D,
+	hand: RigidHand,
 	target: Vector2,
 	input_vec: Vector2,
 	is_grabbed: bool
@@ -157,7 +218,7 @@ func move_hand(
 	limit_arm_distance_hard(hand, false)
 
 
-func apply_grab_body_drive(hand: RigidBody2D, input_vec: Vector2):
+func apply_grab_body_drive(hand: RigidHand, input_vec: Vector2):
 	var from_body = hand.global_position - body.global_position
 	var dist = from_body.length()
 
@@ -189,7 +250,7 @@ func apply_grab_support(hand_dir: Vector2):
 	body.apply_central_force((hand_dir * support_amount).limit_length(最大力道))
 
 
-func apply_grab_tangent_damping(hand: RigidBody2D, input_vec: Vector2):
+func apply_grab_tangent_damping(hand: RigidHand, input_vec: Vector2):
 	if input_vec.length() >= 輸入死區:
 		return
 
@@ -205,7 +266,7 @@ func apply_grab_tangent_damping(hand: RigidBody2D, input_vec: Vector2):
 	body.apply_central_force((-tangent_velocity * 抓取切線阻尼).limit_length(最大力道))
 
 
-func limit_arm_distance_hard(hand: RigidBody2D, hand_is_locked: bool):
+func limit_arm_distance_hard(hand: RigidHand, hand_is_locked: bool):
 	var offset = hand.global_position - body.global_position
 	var dist = offset.length()
 
