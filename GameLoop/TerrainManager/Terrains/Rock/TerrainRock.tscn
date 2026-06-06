@@ -12,5 +12,5 @@ polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19
 points = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19)
 default_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
 
-[node name="CollidePolygon2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(2084861097) index="1" unique_id=411758791]
+[node name="CollidePolygon2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1059130227) index="1" unique_id=411758791]
 polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19)

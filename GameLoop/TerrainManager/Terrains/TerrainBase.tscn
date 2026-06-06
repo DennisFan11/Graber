@@ -7,7 +7,8 @@ color = Color(1, 1, 1, 0.28235295)
 polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
 script = ExtResource("1_ya3uc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2084861097]
+[node name="StaticBody2D" type="AnimatableBody2D" parent="." unique_id=1059130227]
+unique_name_in_owner = true
 
 [node name="Visual" type="Node2D" parent="StaticBody2D" unique_id=422527162]
 unique_name_in_owner = true
