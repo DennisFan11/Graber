@@ -21,9 +21,21 @@ polygon = PackedVector2Array(48, -24, 88, -16, 104, 24, 56, 64, 0, 64, -112, 64,
 position = Vector2(-248, -72)
 polygon = PackedVector2Array(-144, -64, -48, -80, 0, -24, 48, 0, 64, 24, 40, 56, -16, 96, -104, 96, -152, 24)
 
-[node name="TerrainRock" parent="." index="2" unique_id=2133717021 instance=ExtResource("2_sxagu")]
+[node name="TerrainRock5" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="4" unique_id=2133717021 instance=ExtResource("2_sxagu")]
 position = Vector2(-233.42532, -227.30861)
 
-[node name="TerrainRock2" parent="." index="3" unique_id=1419156349 instance=ExtResource("2_sxagu")]
+[node name="TerrainRock6" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="5" unique_id=1419156349 instance=ExtResource("2_sxagu")]
 position = Vector2(-453.8524, -226.06668)
 polygon = PackedVector2Array(-138.14761, 10.066681, -66.14761, -125.93332, 37.852386, -125.93332, 109.85239, -45.93332, 109.85239, 82.06668, -58.147614, 138.06668)
+
+[node name="TerrainRock7" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="6" unique_id=1099711100 instance=ExtResource("2_sxagu")]
+position = Vector2(-128, -369)
+polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 50, 45, 23, 72, -13, 47, -19, 19)
+
+[node name="TerrainRock8" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="7" unique_id=1196958194 instance=ExtResource("2_sxagu")]
+position = Vector2(-31, -499)
+polygon = PackedVector2Array(-240.63647, -168.45422, -322.63647, -167.45422, -325, -183, -299, -189, -268.63647, -207.45422, -186.63647, -227.45422, 43.363525, -258.45422, 199.36353, -200.45422, 271.36353, -124.45422, 188.36353, -30.454224, 159.36353, 27.545776, 84.363525, 70.54578, -19, 19, -108.636475, -70.45422)
+
+[node name="TerrainRock9" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="8" unique_id=1064831999 instance=ExtResource("2_sxagu")]
+position = Vector2(-715, -732)
+polygon = PackedVector2Array(-607, -289, -446, -392, -164, -337, 113, -419, 102, -278, 194, -137, 286.50293, -36.40924, 155, 30, 104, 122, -52, 111, -236, 272, -563, 168)

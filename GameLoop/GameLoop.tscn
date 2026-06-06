@@ -2,9 +2,52 @@
 
 [ext_resource type="PackedScene" uid="uid://ds3f4gb0favoh" path="res://GameLoop/TerrainManager/TerrainManager.tscn" id="1_3fct8"]
 [ext_resource type="PackedScene" uid="uid://dddarmcyhm6i7" path="res://GameLoop/PlayerManager/PlayerManager.tscn" id="2_rr7t6"]
+[ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="3_af654"]
+
+[sub_resource type="Shader" id="Shader_af654"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV) * 1.5;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2sn7p"]
+shader = SubResource("Shader_af654")
+
+[sub_resource type="Environment" id="Environment_rr7t6"]
+background_mode = 3
+glow_levels/3 = 6.87
+glow_levels/5 = 3.41
+glow_levels/6 = 0.25
+glow_levels/7 = 1.38
+glow_hdr_threshold = 0.0
 
 [node name="GameLoop" type="Node2D" unique_id=1934627509]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1528149145]
+visible = false
+color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+polygon = PackedVector2Array(-60640, -47580, 67488, -52444, 67616, 29604, -56032, 25124)
 
 [node name="TerrainManager" parent="." unique_id=1889502423 instance=ExtResource("1_3fct8")]
 
 [node name="PlayerManager" parent="." unique_id=1325859206 instance=ExtResource("2_rr7t6")]
+
+[node name="GlowIcon" type="Sprite2D" parent="." unique_id=1935881943]
+visible = false
+material = SubResource("ShaderMaterial_2sn7p")
+position = Vector2(205, 6)
+texture = ExtResource("3_af654")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=999142605]
+environment = SubResource("Environment_rr7t6")

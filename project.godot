@@ -26,6 +26,12 @@ folder_colors={
 "res://Scene/": "purple"
 }
 
+[importer_defaults]
+
+texture={
+&"svg/scale": 2.0
+}
+
 [input]
 
 L_HAND_UP={
@@ -85,4 +91,6 @@ R_GRAB={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=3
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true
