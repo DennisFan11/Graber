@@ -35,6 +35,8 @@ shape = SubResource("RectangleShape2D_5x51k")
 [node name="Camera2D" type="Camera2D" parent="RigidBody" unique_id=1089404847]
 zoom = Vector2(2.89, 2.89)
 
+[node name="AudioListener2D" type="AudioListener2D" parent="RigidBody" unique_id=167984191]
+
 [node name="RigidHandL" parent="." unique_id=140860852 instance=ExtResource("3_y5mga")]
 unique_name_in_owner = true
 position = Vector2(-43, -52)

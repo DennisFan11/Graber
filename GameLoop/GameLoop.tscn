@@ -35,7 +35,6 @@ glow_hdr_threshold = 0.0
 [node name="GameLoop" type="Node2D" unique_id=1934627509]
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1528149145]
-visible = false
 color = Color(0.09239707, 0.09239706, 0.09239706, 1)
 polygon = PackedVector2Array(-60640, -47580, 67488, -52444, 67616, 29604, -56032, 25124)
 

@@ -155,6 +155,7 @@ func set_hand_grab_type(i: int, hand: RigidHand, grab_type: int):
 		start_wall_grab_vibration(i)
 
 
+
 func start_wall_grab_vibration(hand_index: int):
 	if wall_grab_vibration_strength <= 0.0 or wall_grab_vibration_duration <= 0.0:
 		return

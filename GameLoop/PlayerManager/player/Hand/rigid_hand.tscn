@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dfpmg0ftvymn2" path="res://GameLoop/PlayerManager/player/Hand/rigid_hand.gd" id="1_0xl7k"]
 [ext_resource type="Texture2D" uid="uid://dbvqgjuaj4f31" path="res://GameLoop/PlayerManager/player/Hand/Hand.svg" id="3_q000y"]
 [ext_resource type="Texture2D" uid="uid://b54ygmn13y6sc" path="res://GameLoop/PlayerManager/player/Hand/HandClose.svg" id="4_y1mj3"]
+[ext_resource type="AudioStream" uid="uid://bwx1upuf63tab" path="res://GameLoop/PlayerManager/player/foley_footstep_concrete_4.wav" id="5_0p8ne"]
 [ext_resource type="Texture2D" uid="uid://codrfycs8mxh1" path="res://GameLoop/PlayerManager/player/Hand/AirGrab.svg" id="5_d1xpj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ds3h0"]
@@ -49,3 +50,9 @@ texture = ExtResource("5_d1xpj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1479295178]
 shape = SubResource("RectangleShape2D_ds3h0")
+
+[node name="WallGrabAudio" type="AudioStreamPlayer2D" parent="." unique_id=1407973382]
+unique_name_in_owner = true
+stream = ExtResource("5_0p8ne")
+max_polyphony = 2
+panning_strength = 5.0

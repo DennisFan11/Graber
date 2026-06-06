@@ -14,7 +14,6 @@ var collision_normal := Vector2.ZERO
 enum GRAB_TYPE {IDLE, AIR_GRAB, WALL_GRAB}
 var grab_type: GRAB_TYPE = GRAB_TYPE.IDLE:
 	set(new):
-		grab_type = new
 		%HandClose.visible = false
 		%Hand.visible = false
 		%AirGrab.visible = false
@@ -25,6 +24,9 @@ var grab_type: GRAB_TYPE = GRAB_TYPE.IDLE:
 				%AirGrab.visible = true
 			GRAB_TYPE.WALL_GRAB:
 				%HandClose.visible = true
+				if grab_type != new:
+					%WallGrabAudio.play()
+		grab_type = new
 
 
 func _ready():
