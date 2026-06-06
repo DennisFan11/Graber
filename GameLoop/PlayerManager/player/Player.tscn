@@ -3,17 +3,25 @@
 [ext_resource type="Script" uid="uid://cie88ie3irglr" path="res://GameLoop/PlayerManager/player/player.gd" id="1_5x51k"]
 [ext_resource type="Texture2D" uid="uid://bdmxbmtiusux4" path="res://GameLoop/PlayerManager/player/Body.svg" id="2_y5mga"]
 [ext_resource type="PackedScene" uid="uid://cpj743b8wkm61" path="res://GameLoop/PlayerManager/player/Hand/rigid_hand.tscn" id="3_y5mga"]
+[ext_resource type="PackedScene" uid="uid://0vpl0ycbbejd" path="res://GameLoop/PlayerManager/player/BodyConnect/BodyConnect.tscn" id="4_cvthx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x51k"]
 size = Vector2(24, 24)
 
 [node name="Player" type="Node2D" unique_id=371283019]
 script = ExtResource("1_5x51k")
+"揮手力道" = 1400.0
 
 [node name="RigidBody" type="RigidBody2D" parent="." unique_id=112019043]
 unique_name_in_owner = true
 collision_layer = 0
 angular_damp = 5.0
+
+[node name="BodyConnect" parent="RigidBody" unique_id=1767777709 node_paths=PackedStringArray("body", "Lhand", "Rhand") instance=ExtResource("4_cvthx")]
+unique_name_in_owner = true
+body = NodePath("..")
+Lhand = NodePath("../../RigidHandL")
+Rhand = NodePath("../../RigidHandR")
 
 [node name="Icon" type="Sprite2D" parent="RigidBody" unique_id=886277661]
 position = Vector2(0, -1)
@@ -29,8 +37,8 @@ zoom = Vector2(2.89, 2.89)
 
 [node name="RigidHandL" parent="." unique_id=140860852 instance=ExtResource("3_y5mga")]
 unique_name_in_owner = true
-position = Vector2(-50, 0)
+position = Vector2(-43, -52)
 
 [node name="RigidHandR" parent="." unique_id=896699419 instance=ExtResource("3_y5mga")]
 unique_name_in_owner = true
-position = Vector2(49, 0)
+position = Vector2(45, -50)

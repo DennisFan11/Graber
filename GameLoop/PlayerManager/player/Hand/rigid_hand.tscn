@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cpj743b8wkm61"]
 
 [ext_resource type="Script" uid="uid://dfpmg0ftvymn2" path="res://GameLoop/PlayerManager/player/Hand/rigid_hand.gd" id="1_0xl7k"]
-[ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="1_ds3h0"]
 [ext_resource type="Texture2D" uid="uid://dbvqgjuaj4f31" path="res://GameLoop/PlayerManager/player/Hand/Hand.svg" id="3_q000y"]
 [ext_resource type="Texture2D" uid="uid://b54ygmn13y6sc" path="res://GameLoop/PlayerManager/player/Hand/HandClose.svg" id="4_y1mj3"]
 [ext_resource type="Texture2D" uid="uid://codrfycs8mxh1" path="res://GameLoop/PlayerManager/player/Hand/AirGrab.svg" id="5_d1xpj"]
@@ -27,11 +26,6 @@ linear_damp = 1.35
 angular_damp = 3.0
 script = ExtResource("1_0xl7k")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1753480607]
-visible = false
-scale = Vector2(0.063, 0.063)
-texture = ExtResource("1_ds3h0")
-
 [node name="Hand" type="Sprite2D" parent="." unique_id=1254007866]
 unique_name_in_owner = true
 scale = Vector2(0.25, 0.25)
@@ -42,12 +36,14 @@ unique_name_in_owner = true
 
 [node name="HandClose" type="Sprite2D" parent="Close" unique_id=1370835503]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, 3)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_y1mj3")
 
 [node name="AirGrab" type="Sprite2D" parent="." unique_id=859369203]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_d1xpj")
 

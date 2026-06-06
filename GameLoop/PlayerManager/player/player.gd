@@ -96,6 +96,8 @@ func _physics_process(delta):
 		for i in range(hands.size()):
 			limit_arm_distance_hard(hands[i], grabbed[i])
 
+	
+
 
 func apply_body_upright_torque():
 	var angle_error := wrapf(body.rotation, -PI, PI)
@@ -226,6 +228,8 @@ func apply_grab_body_drive(hand: RigidHand, input_vec: Vector2):
 		return
 
 	var hand_dir = from_body.normalized()
+	var safe_input_vec = get_wall_grab_safe_input(hand, input_vec)
+	input_vec = safe_input_vec
 
 	if input_vec.length() < 輸入死區:
 		apply_grab_support(hand_dir)
@@ -239,6 +243,25 @@ func apply_grab_body_drive(hand: RigidHand, input_vec: Vector2):
 	var damping_force = -relative_velocity * 抓取阻尼
 
 	body.apply_central_force((drive_force + damping_force).limit_length(最大力道))
+
+
+func get_wall_grab_safe_input(hand: RigidHand, input_vec: Vector2) -> Vector2:
+	return input_vec
+	#if input_vec.is_zero_approx() or hand.collision_normal == Vector2.ZERO:
+		#return input_vec
+#
+	#var wall_normal = hand.collision_normal.normalized()
+	#var body_side = body.global_position - hand.global_position
+#
+	#if body_side.length_squared() > 0.0001 and wall_normal.dot(body_side) < 0.0:
+		#wall_normal = -wall_normal
+#
+	#var normal_amount = input_vec.dot(wall_normal)
+#
+	#if normal_amount >= 0.0:
+		#return input_vec
+#
+	#return input_vec - wall_normal * normal_amount
 
 
 func apply_grab_support(hand_dir: Vector2):

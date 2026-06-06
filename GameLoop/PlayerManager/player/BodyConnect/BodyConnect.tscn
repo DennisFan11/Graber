@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://0vpl0ycbbejd"]
+
+[ext_resource type="Shader" uid="uid://cqnjei46go8hn" path="res://GameLoop/PlayerManager/player/BodyConnect/BodyConnect.gdshader" id="1_b7lul"]
+[ext_resource type="Script" uid="uid://bc1owrc6ulpug" path="res://GameLoop/PlayerManager/player/BodyConnect/body_connect.gd" id="1_d385l"]
+[ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="1_wmqid"]
+
+[sub_resource type="Gradient" id="Gradient_b7lul"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0032467532, 0.019762846, 0.2173913)
+colors = PackedColorArray(0.011764706, 0.57254905, 0.40392157, 0, 0.011764706, 0.57254905, 0.40392157, 1, 0.19607843, 0.654902, 0.5137255, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d385l"]
+gradient = SubResource("Gradient_b7lul")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfiu1"]
+shader = ExtResource("1_b7lul")
+shader_parameter/pos_circle1 = Vector2(-43, -52)
+shader_parameter/pos_circle2 = Vector2(45, -50)
+shader_parameter/pos_box = Vector2(0, 0)
+shader_parameter/box_rotation = 0.0
+shader_parameter/radius_circle1 = 6.0
+shader_parameter/radius_circle2 = 6.0
+shader_parameter/box_half_size = Vector2(12, 12)
+shader_parameter/box_corner_radius = 2.5
+shader_parameter/line_thickness = 2.5
+shader_parameter/V = 11.0000001639132
+shader_parameter/color_ramp = SubResource("GradientTexture1D_d385l")
+shader_parameter/color_spread = 10.0
+shader_parameter/emission_strength = 1.0000000149012
+
+[node name="BodyConnect" type="Node2D" unique_id=1767777709]
+process_priority = 1
+script = ExtResource("1_d385l")
+
+[node name="Metaball" type="Sprite2D" parent="." unique_id=1934515777]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_jfiu1")
+scale = Vector2(3, 3)
+texture = ExtResource("1_wmqid")
