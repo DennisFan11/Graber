@@ -1,8 +1,43 @@
 [gd_scene format=3 uid="uid://5das1ci2y2fy"]
 
 [ext_resource type="PackedScene" uid="uid://ds3f4gb0favoh" path="res://GameLoop/TerrainManager/TerrainManager.tscn" id="1_3fct8"]
+[ext_resource type="PackedScene" uid="uid://dx1m56xp06hwg" path="res://GameLoop/TerrainManager/Terrains/Rock/TerrainRock.tscn" id="2_2sn7p"]
 [ext_resource type="PackedScene" uid="uid://dddarmcyhm6i7" path="res://GameLoop/PlayerManager/PlayerManager.tscn" id="2_rr7t6"]
 [ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="3_af654"]
+
+[sub_resource type="Shader" id="Shader_2sn7p"]
+code = "shader_type canvas_item;
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+// 硬漸層層數
+uniform int layer_count : hint_range(2, 32, 1) = 4;
+
+// SDF 深度，越大代表漸層往內吃越深
+uniform float sdf_depth : hint_range(1.0, 512.0, 1.0) = 50.0;
+
+void fragment() {
+    vec2 sdfuv = screen_uv_to_sdf(SCREEN_UV);
+    float dist = texture_sdf(sdfuv);
+
+    // dist 內部是負數，所以用 -dist
+    // dist = 0        → t = 0
+    // dist = -depth   → t = 1
+    float t = clamp(-dist / sdf_depth, 0.0, 1.0);
+
+    // 多層硬漸層
+    float layers = float(layer_count - 1);
+    float alpha = floor(t * layers) / layers;
+
+    vec4 screen_col = texture(SCREEN_TEXTURE, SCREEN_UV);
+
+    COLOR = mix(screen_col, COLOR, alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5qc6"]
+shader = SubResource("Shader_2sn7p")
+shader_parameter/layer_count = 4
+shader_parameter/sdf_depth = 36.0
 
 [sub_resource type="Shader" id="Shader_af654"]
 code = "shader_type canvas_item;
@@ -34,13 +69,29 @@ glow_hdr_threshold = 0.0
 
 [node name="GameLoop" type="Node2D" unique_id=1934627509]
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1528149145]
-color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=834600182]
+
+[node name="TerrainShader" type="ColorRect" parent="CanvasLayer" unique_id=1559962589]
+material = SubResource("ShaderMaterial_n5qc6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.35686275, 1)
+
+[node name="Background" type="Polygon2D" parent="." unique_id=1528149145]
+visible = false
+color = Color(0.5609549, 0.5609549, 0.5609549, 1)
 polygon = PackedVector2Array(-60640, -47580, 67488, -52444, 67616, 29604, -56032, 25124)
+
+[node name="PlayerManager" parent="." unique_id=1325859206 instance=ExtResource("2_rr7t6")]
 
 [node name="TerrainManager" parent="." unique_id=1889502423 instance=ExtResource("1_3fct8")]
 
-[node name="PlayerManager" parent="." unique_id=1325859206 instance=ExtResource("2_rr7t6")]
+[node name="TestRock" parent="TerrainManager" unique_id=1422216466 instance=ExtResource("2_2sn7p")]
+position = Vector2(397, 785)
+polygon = PackedVector2Array(-67, -12, 176, -129, 366, -74, 407, 92, 128, 93, -36, 39)
 
 [node name="GlowIcon" type="Sprite2D" parent="." unique_id=1935881943]
 visible = false

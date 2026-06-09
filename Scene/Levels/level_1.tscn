@@ -3,49 +3,70 @@
 [ext_resource type="PackedScene" uid="uid://5das1ci2y2fy" path="res://GameLoop/GameLoop.tscn" id="1_8twhv"]
 [ext_resource type="PackedScene" uid="uid://dx1m56xp06hwg" path="res://GameLoop/TerrainManager/Terrains/Rock/TerrainRock.tscn" id="2_sxagu"]
 [ext_resource type="PackedScene" uid="uid://d3m8k5iunx2yc" path="res://GameLoop/TerrainManager/TerrainPath/TerrainPath.tscn" id="3_cfqvl"]
+[ext_resource type="PackedScene" uid="uid://c1y4voqbex4hh" path="res://Scene/SceneChunk/terrain_main_town.tscn" id="4_pporg"]
+
+[sub_resource type="Curve2D" id="Curve2D_pporg"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(-8.979593, 22.593815, 8.979593, -22.593815, -162, -155, 10.310379, 75.7836, -10.310379, -75.7836, -267, -590)
+}
+point_count = 2
 
 [node name="Level1" unique_id=1934627509 instance=ExtResource("1_8twhv")]
 
+[node name="TerrainShader" parent="CanvasLayer" parent_id_path=PackedInt32Array(834600182) index="0" unique_id=1559962589]
+offset_left = -102343.0
+offset_top = -88363.0
+offset_right = 104064.0
+offset_bottom = 70784.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
 [node name="TerrainRock" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="0" unique_id=1422216466 instance=ExtResource("2_sxagu")]
-position = Vector2(-2, 16)
-polygon = PackedVector2Array(-22, 8, 2, 8, 42, 8, 58, 40, -46, 72, -110, 40, -94, 0, -62, 0)
+position = Vector2(-4697, -1624)
+polygon = PackedVector2Array(-22, 8, 2, 8, 42, 8, 54, 123, -86, 112, -202, 54, -116, 44, -94, 0, -62, 0)
 
 [node name="TerrainRock2" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="1" unique_id=520776126 instance=ExtResource("2_sxagu")]
-position = Vector2(-120, -16)
-polygon = PackedVector2Array(8, 80, 24, 32, 0, 16, -40, 0, -80, 0, -112, 48, -80, 88)
+position = Vector2(-4815, -1656)
+polygon = PackedVector2Array(8, 80, 24, 32, 0, 16, -40, 0, -77, -17, -160, 36, -80, 88)
 
 [node name="TerrainRock3" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="2" unique_id=742800073 instance=ExtResource("2_sxagu")]
-position = Vector2(144, 32)
-polygon = PackedVector2Array(48, -24, 88, -16, 104, 24, 56, 64, 0, 64, -112, 64, -104, -8, 16, -32)
+position = Vector2(-4551, -1608)
+polygon = PackedVector2Array(48, -24, 88, -16, 104, 24, 56, 64, 0, 64, -93, 107, -104, -8, 16, -32)
 
 [node name="TerrainRock4" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="3" unique_id=1878025663 instance=ExtResource("2_sxagu")]
-position = Vector2(-248, -72)
-polygon = PackedVector2Array(-144, -64, -48, -80, 0, -24, 48, 0, 64, 24, 40, 56, -16, 96, -104, 96, -152, 24)
+position = Vector2(-4943, -1712)
+polygon = PackedVector2Array(-197, -63, -78.5647, -81.18567, -40, -67, 0, -24, 48, 0, 64, 24, 40, 56, -16, 96, -104, 96, -270, 57)
 
 [node name="TerrainRock5" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="4" unique_id=2133717021 instance=ExtResource("2_sxagu")]
-position = Vector2(-233.42532, -227.30861)
+position = Vector2(-4928.4253, -1867.3086)
 
 [node name="TerrainRock6" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="5" unique_id=1419156349 instance=ExtResource("2_sxagu")]
-position = Vector2(-453.8524, -226.06668)
-polygon = PackedVector2Array(-138.14761, 10.066681, -66.14761, -125.93332, 37.852386, -125.93332, 109.85239, -45.93332, 109.85239, 82.06668, -58.147614, 138.06668)
+position = Vector2(-5477, -1826)
+polygon = PackedVector2Array(-269, 68, -245, -23, -66.14761, -125.93332, 37.852386, -125.93332, 109.85239, -45.93332, 109.85239, 82.06668, -41, 211, -191, 207)
 
 [node name="TerrainRock7" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="6" unique_id=1099711100 instance=ExtResource("2_sxagu")]
-position = Vector2(-128, -369)
+position = Vector2(-4823, -2009)
 polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 50, 45, 23, 72, -13, 47, -19, 19)
 
 [node name="TerrainRock8" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="7" unique_id=1196958194 instance=ExtResource("2_sxagu")]
-position = Vector2(-31, -499)
-polygon = PackedVector2Array(-240.63647, -168.45422, -322.63647, -167.45422, -325, -183, -299, -189, -268.63647, -207.45422, -186.63647, -227.45422, 43.363525, -258.45422, 199.36353, -200.45422, 271.36353, -124.45422, 188.36353, -30.454224, 159.36353, 27.545776, 84.363525, 70.54578, -19, 19, -108.636475, -70.45422)
+position = Vector2(-4726, -2139)
+polygon = PackedVector2Array(-240.63647, -168.45422, -322.63647, -167.45422, -325, -183, -299, -189, -268.63647, -207.45422, -186.63647, -227.45422, 43.363525, -258.45422, 199.36353, -200.45422, 271.36353, -124.45422, 188.36353, -30.454224, 159.36353, 27.545776, 84.363525, 70.54578, -19, 19, -108.636475, -70.45422, -164, -115)
 
 [node name="TerrainRock9" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="8" unique_id=1064831999 instance=ExtResource("2_sxagu")]
-position = Vector2(-715, -732)
-polygon = PackedVector2Array(-867, -224, -773, -541, -630, -419, -446, -392, -226, -419, -139, -403, 10, -431, 113, -419, 102, -278, 194, -137, 286.50293, -36.40924, 155, 30, 104, 122, -52, 111, -236, 272, -563, 168)
+position = Vector2(-5410, -2372)
+polygon = PackedVector2Array(-867, -224, -770, -385, -630, -419, -446, -392, -226, -419, -139, -403, 10, -431, 113, -419, 102, -278, 194, -137, 291, -24, 249, 22, 155, 30, 104, 122, -52, 111, -236, 272, -563, 168)
 
 [node name="Moveable" type="Node2D" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="9" unique_id=1702914930]
-position = Vector2(368, 98)
+position = Vector2(-4327, -1542)
 
 [node name="MoveRock" parent="TerrainManager/Moveable" index="0" unique_id=1976005353 instance=ExtResource("2_sxagu")]
+position = Vector2(-161, -153)
 polygon = PackedVector2Array(-61.141785, -18.976929, 1.8582153, -40.97693, 48.858215, -32.97693, 96.858215, 32.02307, 50.858215, 81.02307, -34.141785, 100.02307, -56.141785, 43.02307)
 
 [node name="TerrainPath" parent="TerrainManager/Moveable" index="1" unique_id=1123255723 node_paths=PackedStringArray("terrain") instance=ExtResource("3_cfqvl")]
+curve = SubResource("Curve2D_pporg")
 terrain = NodePath("../MoveRock")
+
+[node name="TerrainMainTown" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="11" unique_id=43586993 instance=ExtResource("4_pporg")]

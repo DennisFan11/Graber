@@ -39,6 +39,9 @@ var targets = [Vector2.ZERO, Vector2.ZERO]
 var smooth_targets = [Vector2.ZERO, Vector2.ZERO]
 var grabbed = [false, false]
 var grab_pos = [Vector2.ZERO, Vector2.ZERO]
+var grabbed_bodies = [null, null]
+var grab_local_pos = [Vector2.ZERO, Vector2.ZERO]
+var grab_joints = [null, null]
 
 
 func _ready():
@@ -55,7 +58,6 @@ func _ready():
 		grab_pos[i] = start_pos
 
 		hand.global_position = start_pos
-		hand.set_meta("gravity_scale", hand.gravity_scale)
 
 
 func apply_safe_defaults():
@@ -89,12 +91,9 @@ func _physics_process(delta):
 		var input_vec = get_hand_input(i)
 
 		update_grab_state(i, hand)
+		update_grab_anchor(i, hand)
 		update_target(i, hand, input_vec, center, delta)
 		move_hand(hand, smooth_targets[i], input_vec, grabbed[i])
-
-	for j in range(距離約束迭代):
-		for i in range(hands.size()):
-			limit_arm_distance_hard(hands[i], grabbed[i])
 
 	
 
@@ -110,7 +109,6 @@ func update_target(i: int, hand: RigidHand, input_vec: Vector2, center: Vector2,
 	if grabbed[i]:
 		targets[i] = grab_pos[i]
 		smooth_targets[i] = grab_pos[i]
-		lock_hand_position(hand, grab_pos[i])
 		return
 
 	if input_vec.length() < 輸入死區:
@@ -130,16 +128,16 @@ func update_grab_state(i: int, hand: RigidHand):
 	var action_name = "L_GRAB" if i == 0 else "R_GRAB"
 	var pressing = Input.is_action_pressed(action_name)
 
-	if pressing and not grabbed[i] and hand.get_contact_count() > 0:
-		grabbed[i] = true
-		grab_pos[i] = hand.global_position
-		smooth_targets[i] = grab_pos[i]
-		set_hand_grab_type(i, hand, RigidHand.GRAB_TYPE.WALL_GRAB)
-		lock_hand(hand, grab_pos[i])
+	if pressing and not grabbed[i]:
+		var target_body = find_grab_body(hand)
+
+		if target_body:
+			start_grab(i, hand, target_body)
+		else:
+			set_hand_grab_type(i, hand, RigidHand.GRAB_TYPE.AIR_GRAB)
 	elif not pressing and grabbed[i]:
-		grabbed[i] = false
+		stop_grab(i, hand)
 		set_hand_grab_type(i, hand, RigidHand.GRAB_TYPE.IDLE)
-		unlock_hand(hand)
 	elif pressing:
 		var grab_type = RigidHand.GRAB_TYPE.WALL_GRAB if grabbed[i] else RigidHand.GRAB_TYPE.AIR_GRAB
 		set_hand_grab_type(i, hand, grab_type)
@@ -173,22 +171,77 @@ func start_wall_grab_vibration(hand_index: int):
 		)
 
 
-func lock_hand(hand: RigidHand, pos: Vector2):
-	lock_hand_position(hand, pos)
-	hand.gravity_scale = 0.0
-	hand.freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
-	hand.freeze = true
+func find_grab_body(hand: RigidHand):
+	for collider in hand.get_colliding_bodies():
+		if collider is PhysicsBody2D and collider != hand and collider != body:
+			if collider.get_parent() is not TerrainBase:
+				continue
+			if not (collider.get_parent() as TerrainBase).can_grab():
+				continue
+			return collider
+	return null
 
 
-func lock_hand_position(hand: RigidHand, pos: Vector2):
-	hand.global_position = pos
-	hand.linear_velocity = Vector2.ZERO
-	hand.angular_velocity = 0.0
+func start_grab(i: int, hand: RigidHand, target_body: PhysicsBody2D):
+	grabbed[i] = true
+	grabbed_bodies[i] = target_body
+	grab_local_pos[i] = target_body.to_local(hand.global_position)
+	grab_pos[i] = target_body.to_global(grab_local_pos[i])
+	smooth_targets[i] = grab_pos[i]
+
+	create_grab_joint(i, hand, target_body)
+	set_hand_grab_type(i, hand, RigidHand.GRAB_TYPE.WALL_GRAB)
+
+
+func stop_grab(i: int, hand: RigidHand):
+	grabbed[i] = false
+	grabbed_bodies[i] = null
+	grab_local_pos[i] = Vector2.ZERO
+	remove_grab_joint(i)
+	unlock_hand(hand)
+
+
+func update_grab_anchor(i: int, hand: RigidHand):
+	if not grabbed[i]:
+		return
+
+
+	var target_body = grabbed_bodies[i]
+	if not is_instance_valid(target_body):
+		stop_grab(i, hand)
+		return
+
+	grab_pos[i] = target_body.to_global(grab_local_pos[i])
+
+	var joint = grab_joints[i]
+	if is_instance_valid(joint):
+		joint.global_position = grab_pos[i]
+
+
+func create_grab_joint(i: int, hand: RigidHand, target_body: PhysicsBody2D):
+	remove_grab_joint(i)
+
+	var joint := PinJoint2D.new()
+	joint.name = "GrabJoint%d" % i
+	add_child(joint)
+	joint.global_position = grab_pos[i]
+	joint.node_a = joint.get_path_to(target_body)
+	joint.node_b = joint.get_path_to(hand)
+	joint.disable_collision = true
+	joint.softness = 0.0
+	grab_joints[i] = joint
+
+
+func remove_grab_joint(i: int):
+	var joint = grab_joints[i]
+	if is_instance_valid(joint):
+		joint.queue_free()
+
+	grab_joints[i] = null
 
 
 func unlock_hand(hand: RigidHand):
 	hand.freeze = false
-	hand.gravity_scale = hand.get_meta("gravity_scale", 1.0)
 	hand.linear_velocity = body.linear_velocity
 
 
@@ -201,7 +254,7 @@ func move_hand(
 	if is_grabbed:
 		apply_grab_body_drive(hand, input_vec)
 		apply_grab_tangent_damping(hand, input_vec)
-		limit_arm_distance_hard(hand, true)
+		apply_arm_distance_force(hand, true)
 		return
 
 	var force = Vector2.DOWN * 手部下墜力 * hand.mass
@@ -218,7 +271,7 @@ func move_hand(
 	if input_vec.length() >= 輸入死區 and hand.get_contact_count() > 0:
 		body.apply_central_force(-force * 身體反作用 * 接觸反作用倍率)
 
-	limit_arm_distance_hard(hand, false)
+	apply_arm_distance_force(hand, false)
 
 
 func apply_grab_body_drive(hand: RigidHand, input_vec: Vector2):
@@ -290,27 +343,24 @@ func apply_grab_tangent_damping(hand: RigidHand, input_vec: Vector2):
 	body.apply_central_force((-tangent_velocity * 抓取切線阻尼).limit_length(最大力道))
 
 
-func limit_arm_distance_hard(hand: RigidHand, hand_is_locked: bool):
+func apply_arm_distance_force(hand: RigidHand, hand_is_grabbed: bool):
 	var offset = hand.global_position - body.global_position
 	var dist = offset.length()
 
-	if dist <= 手臂半徑:
+	if dist <= 手臂半徑 or dist <= 0.001:
 		return
 
-	var dir = offset.normalized()
+	var dir = offset / dist
+	var stretch = dist - 手臂半徑
 	var outward_speed = (hand.linear_velocity - body.linear_velocity).dot(dir)
+	var spring_force = stretch * 最大力道
+	var damping_force = max(outward_speed, 0.0) * 揮手阻尼
+	var force = dir * (spring_force + damping_force)
 
-	if hand_is_locked:
-		body.linear_velocity += dir * outward_speed
-	elif outward_speed > 0.0:
-		hand.linear_velocity -= dir * outward_speed
-
-	var correction = dir * (dist - 手臂半徑)
-
-	if hand_is_locked:
-		body.global_position += correction
+	if hand_is_grabbed:
+		body.apply_central_force(force.limit_length(最大力道))
 	else:
-		hand.global_position -= correction
+		hand.apply_central_force((-force).limit_length(最大力道))
 
 
 func clamp_point_inside_radius(point: Vector2, center: Vector2) -> Vector2:

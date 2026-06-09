@@ -33,7 +33,6 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_5x51k")
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody" unique_id=1089404847]
-zoom = Vector2(1.585, 1.585)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="RigidBody" unique_id=167984191]
 

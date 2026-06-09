@@ -2,15 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://cm6fnq0vnkij4" path="res://GameLoop/TerrainManager/Terrains/TerrainBase.tscn" id="1_ts81h"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ts81h"]
+resource_local_to_scene = true
+polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19)
+
 [node name="TerrainRock" unique_id=1422216466 instance=ExtResource("1_ts81h")]
 polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19)
+"可抓取" = true
 
-[node name="VisualPolygon2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="0" unique_id=2021273492]
+[node name="CollidePolygon2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1059130227) index="0" unique_id=411758791]
 polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19)
 
-[node name="VisualPolyLine" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="1" unique_id=265850612]
+[node name="LightOccluder2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="0" unique_id=1573748164]
+occluder = SubResource("OccluderPolygon2D_ts81h")
+
+[node name="VisualPolygon2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="1" unique_id=2021273492]
+color = Color(0.5997381, 0.6024946, 0.6384084, 1)
+polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19)
+
+[node name="VisualPolyLine" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="2" unique_id=265850612]
 points = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19)
 default_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
-
-[node name="CollidePolygon2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1059130227) index="1" unique_id=411758791]
-polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 40, -8, 22, 15, -19, 19)

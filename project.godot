@@ -98,3 +98,5 @@ R_GRAB={
 textures/canvas_textures/default_texture_filter=3
 rendering_device/driver.windows="d3d12"
 viewport/hdr_2d=true
+2d/sdf/oversize=2
+2d/sdf/scale=0

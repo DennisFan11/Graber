@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://c3rqqg0irs76y" path="res://GameLoop/TerrainManager/TerrainPath/terrain_path.gd" id="1_odfnj"]
 
 [sub_resource type="Curve2D" id="Curve2D_kvy8j"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2, 0, 0, 0, 0, 0, -66.51233, -726.04395)
+"points": PackedVector2Array(0, 0, 0, 0, -2, 0, -251.38452, 150.05121, 251.38452, -150.05121, 772, -130)
 }
 point_count = 2
 
@@ -15,7 +16,7 @@ script = ExtResource("1_odfnj")
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1819343805]
 unique_name_in_owner = true
 position = Vector2(-2, 0)
-rotation = -1.6594182
+rotation = 0.03834823
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=932425462]
 unique_name_in_owner = true
