@@ -1,9 +1,11 @@
+@tool
+class_name Player
 extends Node2D
 
 const RigidHand = preload("res://GameLoop/PlayerManager/player/Hand/rigid_hand.gd")
 
 @export_group("手臂")
-@export var 手臂半徑: float = 56.0
+static var 手臂半徑: float = 56.0
 @export var 輸入死區: float = 0.12
 @export var 距離約束迭代: int = 4
 @export var 目標跟隨速度: float = 28.0
@@ -45,6 +47,8 @@ var grab_joints = [null, null]
 
 
 func _ready():
+	if Engine.is_editor_hint(): return
+
 	apply_safe_defaults()
 	apply_body_upright_defaults()
 	hands = [hand_l, hand_r]
@@ -83,6 +87,7 @@ func apply_body_upright_defaults():
 
 
 func _physics_process(delta):
+	if Engine.is_editor_hint(): return
 	var center = body.global_position
 	apply_body_upright_torque()
 
@@ -301,21 +306,6 @@ func apply_grab_body_drive(hand: RigidHand, input_vec: Vector2):
 
 func get_wall_grab_safe_input(hand: RigidHand, input_vec: Vector2) -> Vector2:
 	return input_vec
-	#if input_vec.is_zero_approx() or hand.collision_normal == Vector2.ZERO:
-		#return input_vec
-#
-	#var wall_normal = hand.collision_normal.normalized()
-	#var body_side = body.global_position - hand.global_position
-#
-	#if body_side.length_squared() > 0.0001 and wall_normal.dot(body_side) < 0.0:
-		#wall_normal = -wall_normal
-#
-	#var normal_amount = input_vec.dot(wall_normal)
-#
-	#if normal_amount >= 0.0:
-		#return input_vec
-#
-	#return input_vec - wall_normal * normal_amount
 
 
 func apply_grab_support(hand_dir: Vector2):

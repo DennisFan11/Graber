@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://5das1ci2y2fy"]
 
 [ext_resource type="PackedScene" uid="uid://ds3f4gb0favoh" path="res://GameLoop/TerrainManager/TerrainManager.tscn" id="1_3fct8"]
-[ext_resource type="PackedScene" uid="uid://dx1m56xp06hwg" path="res://GameLoop/TerrainManager/Terrains/Rock/TerrainRock.tscn" id="2_2sn7p"]
 [ext_resource type="PackedScene" uid="uid://dddarmcyhm6i7" path="res://GameLoop/PlayerManager/PlayerManager.tscn" id="2_rr7t6"]
 [ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="3_af654"]
 
@@ -88,10 +87,6 @@ polygon = PackedVector2Array(-60640, -47580, 67488, -52444, 67616, 29604, -56032
 [node name="PlayerManager" parent="." unique_id=1325859206 instance=ExtResource("2_rr7t6")]
 
 [node name="TerrainManager" parent="." unique_id=1889502423 instance=ExtResource("1_3fct8")]
-
-[node name="TestRock" parent="TerrainManager" unique_id=1422216466 instance=ExtResource("2_2sn7p")]
-position = Vector2(397, 785)
-polygon = PackedVector2Array(-67, -12, 176, -129, 366, -74, 407, 92, 128, 93, -36, 39)
 
 [node name="GlowIcon" type="Sprite2D" parent="." unique_id=1935881943]
 visible = false

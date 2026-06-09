@@ -4,9 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bd1g2y82xqbf6" path="res://GameLoop/PlayerManager/PlayerSizeSample/player_size_sample.png" id="1_vjdtk"]
 
 [node name="PlayerSizeSample" type="Node2D" unique_id=1896592248]
+modulate = Color(1, 1, 1, 0.34901962)
 script = ExtResource("1_tbftv")
 
 [node name="PlayerSizeSample" type="Sprite2D" parent="." unique_id=1619586304]
 position = Vector2(-1.0000001, -24.000011)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_vjdtk")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=263223071]
+unique_name_in_owner = true
+points = PackedVector2Array(56, 0, -56, 0)
+default_color = Color(0.7702846, 0.4272792, 0.7112242, 1)
