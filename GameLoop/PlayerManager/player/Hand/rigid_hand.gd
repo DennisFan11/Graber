@@ -1,3 +1,4 @@
+class_name RigidHand
 extends RigidBody2D
 
 

@@ -2,7 +2,6 @@
 class_name Player
 extends Node2D
 
-const RigidHand = preload("res://GameLoop/PlayerManager/player/Hand/rigid_hand.gd")
 
 @export_group("手臂")
 static var 手臂半徑: float = 56.0
@@ -49,8 +48,6 @@ var grab_joints = [null, null]
 func _ready():
 	if Engine.is_editor_hint(): return
 
-	apply_safe_defaults()
-	apply_body_upright_defaults()
 	hands = [hand_l, hand_r]
 
 	for i in range(hands.size()):
@@ -64,26 +61,7 @@ func _ready():
 		hand.global_position = start_pos
 
 
-func apply_safe_defaults():
-	if 手臂半徑 <= 0.0:
-		手臂半徑 = 56.0
-	if 最大力道 <= 0.0:
-		最大力道 = 2400.0
-	if 距離約束迭代 <= 0:
-		距離約束迭代 = 4
-	if 目標跟隨速度 <= 0.0:
-		目標跟隨速度 = 14.0
-	if 抓取切線阻尼 < 0.0:
-		抓取切線阻尼 = 10.0
 
-
-func apply_body_upright_defaults():
-	if body_upright_torque < 0.0:
-		body_upright_torque = 850.0
-	if body_upright_damping < 0.0:
-		body_upright_damping = 70.0
-	if max_body_upright_torque <= 0.0:
-		max_body_upright_torque = 2400.0
 
 
 func _physics_process(delta):
@@ -287,8 +265,6 @@ func apply_grab_body_drive(hand: RigidHand, input_vec: Vector2):
 		return
 
 	var hand_dir = from_body.normalized()
-	var safe_input_vec = get_wall_grab_safe_input(hand, input_vec)
-	input_vec = safe_input_vec
 
 	if input_vec.length() < 輸入死區:
 		apply_grab_support(hand_dir)
@@ -304,8 +280,7 @@ func apply_grab_body_drive(hand: RigidHand, input_vec: Vector2):
 	body.apply_central_force((drive_force + damping_force).limit_length(最大力道))
 
 
-func get_wall_grab_safe_input(hand: RigidHand, input_vec: Vector2) -> Vector2:
-	return input_vec
+
 
 
 func apply_grab_support(hand_dir: Vector2):
