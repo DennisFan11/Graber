@@ -3,15 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dx1m56xp06hwg" path="res://GameLoop/TerrainManager/Terrains/Rock/TerrainRock.tscn" id="1_ky7tu"]
 [ext_resource type="PackedScene" uid="uid://kneqaa1is8qc" path="res://GameLoop/PlayerManager/PlayerSizeSample/PlayerSizeSample.tscn" id="2_dqkqq"]
 [ext_resource type="PackedScene" uid="uid://drtpdty0q0yxx" path="res://GameLoop/TerrainManager/Terrains/DarkRock/terrain_dark_rock.tscn" id="3_iir8h"]
-[ext_resource type="PackedScene" uid="uid://d3m8k5iunx2yc" path="res://GameLoop/TerrainManager/TerrainPath/TerrainPath.tscn" id="4_oublt"]
 [ext_resource type="PackedScene" uid="uid://c4gui70u0xk4t" path="res://GameLoop/TerrainManager/Items/GodotToy/GodotToy.tscn" id="5_gyihc"]
-
-[sub_resource type="Curve2D" id="Curve2D_oublt"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(-29.114729, 132.42097, 29.114729, -132.42097, -5, 221, -165.70906, 179.51816, 165.70906, -179.51816, 136, -856, -41.064896, 139.5598, 41.064896, -139.5598, 442, -2003)
-}
-point_count = 3
 
 [node name="TerrainMainTown" type="Node2D" unique_id=43586993]
 
@@ -36,7 +28,7 @@ polygon = PackedVector2Array(-183.6886, 138.34384, 488.3114, -371.65616, 532.311
 
 [node name="TerrainDarkRock2" parent="." unique_id=1095240079 instance=ExtResource("3_iir8h")]
 position = Vector2(1757, 22)
-polygon = PackedVector2Array(-990.41943, -396.11304, -1384.4194, -731.11304, -1528.4194, -1120.113, -1856, -1478, -1016, -2673, 1400.5806, -3630.113, 4859.5806, -2081.113, 5300.5806, 3426.887, -345.41943, 2249.887, -1421.4194, 2046.887, -1196.4194, 1486.887, -1174.4194, 716.88696, -975.41943, 142.88696)
+polygon = PackedVector2Array(-990.41943, -396.11304, -1384.4194, -731.11304, -1528.4194, -1120.113, -1856, -1478, -346, -1783, 2148, -1176, 3509, 792, 2222, 2276, -345.41943, 2249.887, -1421.4194, 2046.887, -1196.4194, 1486.887, -1174.4194, 716.88696, -975.41943, 142.88696)
 
 [node name="TerrainRock4" parent="." unique_id=1289076138 instance=ExtResource("1_ky7tu")]
 position = Vector2(-802.1384, -527.7649)
@@ -82,19 +74,6 @@ polygon = PackedVector2Array(-366.9075, -22.710938, -358.9075, -45.710938, -250.
 position = Vector2(-395.76474, -782.3676)
 polygon = PackedVector2Array(-37.23526, 4.3676147, -19.23526, -11.632385, 2.76474, -25.632385, 7.76474, -11.632385, 12.76474, 7.3676147, -1.23526, 21.367615, -9.23526, 5.3676147)
 
-[node name="Moveable" type="Node2D" parent="." unique_id=567263212]
-position = Vector2(80, 2007)
-
-[node name="MoveRock" parent="Moveable" unique_id=750082655 instance=ExtResource("1_ky7tu")]
-position = Vector2(-2, 3)
-polygon = PackedVector2Array(-61.141785, -18.976929, 1.8582153, -40.97693, 48.858215, -32.97693, 96.858215, 32.02307, 50.858215, 81.02307, -34.141785, 100.02307, -56.141785, 43.02307)
-
-[node name="TerrainPath" parent="Moveable" unique_id=1123255723 node_paths=PackedStringArray("terrain") instance=ExtResource("4_oublt")]
-position = Vector2(2.966443, -179.22522)
-scale = Vector2(0.9932886, 0.91052157)
-curve = SubResource("Curve2D_oublt")
-terrain = NodePath("../MoveRock")
-
 [node name="TerrainRock10" parent="." unique_id=1447284590 instance=ExtResource("1_ky7tu")]
 position = Vector2(-348, -1316)
 polygon = PackedVector2Array(-120, -6, -105, -27, -2, -36, 89, -30, 152, -13, 158, 41, 132, 54, 79, 65, -21, 19, -101, 31)
@@ -105,7 +84,7 @@ rotation = -2.8799198
 
 [node name="TerrainDarkRock6" parent="." unique_id=486076455 instance=ExtResource("3_iir8h")]
 position = Vector2(-1121, -1222)
-polygon = PackedVector2Array(-472, -333, -116, -391, 388, -334, 411, -83, 379, 105, 445, 279, 394, 394, -243, 234, -425, -7)
+polygon = PackedVector2Array(-472, -333, -116, -391, 247, -380, 227, -190, 319, -76, 411, -83, 379, 105, 445, 279, 394, 394, -243, 234, -425, -7)
 
 [node name="PlayerSizeSample5" parent="." unique_id=688259787 instance=ExtResource("2_dqkqq")]
 position = Vector2(-517, -1299)
@@ -124,11 +103,11 @@ position = Vector2(-395, -1166)
 [node name="TerrainRock13" parent="." unique_id=2068991438 instance=ExtResource("1_ky7tu")]
 position = Vector2(-664.00006, -1273.0001)
 rotation = -2.894969
-polygon = PackedVector2Array(-22.046509, 14.830933, -11.86084, 14.329102, 52.413452, 15.678589, 61.43268, 43.312866, 16.79065, 33.92737, -22.256714, 34.476685, -30.028198, 28.183472, -33.68341, 17.760498)
+polygon = PackedVector2Array(-22.046509, 14.830933, -11.86084, 14.329102, 64.49786, -10.050171, 140.14453, -24.969238, 140.17163, -8.476807, 16.79065, 33.92737, -22.256714, 34.476685, -30.028198, 28.183472, -33.68341, 17.760498)
 
 [node name="TerrainDarkRock8" parent="." unique_id=838011428 instance=ExtResource("3_iir8h")]
 position = Vector2(-689.167, -1270.5792)
-polygon = PackedVector2Array(-22.833008, -31.420776, 64.16699, -13.420776, 56.166992, -5.4207764, -30.833008, 4.5792236, -45.833008, -25.420776)
+polygon = PackedVector2Array(-33.833008, -18.420776, 64.16699, -13.420776, 56.166992, -5.4207764, -30.833008, 4.5792236, -60.833008, -8.420776)
 
 [node name="TerrainRock14" parent="." unique_id=1761380435 instance=ExtResource("1_ky7tu")]
 position = Vector2(-107, -1215)
@@ -139,4 +118,12 @@ position = Vector2(-98, -1190)
 polygon = PackedVector2Array(-12, 0, -35, -9, -37, -25, -28.068298, -33.187317, -7, -19, -1, -9)
 
 [node name="GodotToy" parent="." unique_id=1195322324 instance=ExtResource("5_gyihc")]
-position = Vector2(-306.6867, -180.06271)
+position = Vector2(-268.58246, -134.88152)
+
+[node name="TerrainRock15" parent="." unique_id=1216062434 instance=ExtResource("1_ky7tu")]
+position = Vector2(-235, -1404)
+polygon = PackedVector2Array(-14, -22, -1, -27, 10, -20, 9, 19, -9, 27, -28, 8)
+
+[node name="TerrainRock" parent="TerrainRock15" unique_id=1434973638 instance=ExtResource("1_ky7tu")]
+position = Vector2(46.857178, -123.14099)
+polygon = PackedVector2Array(-11.857178, -20.859009, -1, -27, 21.142822, -18.859009, 7.1428223, 5.140991, -4.8571777, 15.140991, -12.857178, 5.140991)

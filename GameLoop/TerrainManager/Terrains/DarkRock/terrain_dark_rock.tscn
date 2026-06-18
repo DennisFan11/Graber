@@ -14,4 +14,4 @@ occluder = SubResource("OccluderPolygon2D_t5pw6")
 
 [node name="VisualPolygon2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="1" unique_id=2021273492]
 color = Color(0.19359115, 0.17196083, 0.34851778, 1)
-polygon = PackedVector2Array(-7, -5, 10, -5, 9, 7, -8, 6)
+polygon = PackedVector2Array(-7, -7, 9, -7, 6, 7, -6, 6)
