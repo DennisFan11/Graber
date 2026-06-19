@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bdmxbmtiusux4" path="res://GameLoop/PlayerManager/player/Body.svg" id="2_y5mga"]
 [ext_resource type="PackedScene" uid="uid://cpj743b8wkm61" path="res://GameLoop/PlayerManager/player/Hand/rigid_hand.tscn" id="3_y5mga"]
 [ext_resource type="PackedScene" uid="uid://0vpl0ycbbejd" path="res://GameLoop/PlayerManager/player/BodyConnect/BodyConnect.tscn" id="4_cvthx"]
+[ext_resource type="Script" uid="uid://d04qnapdd1u6u" path="res://_Libs/SimpleRaytracedAudio2D/RayAudioListener.gd" id="4_t0g4x"]
+[ext_resource type="Script" uid="uid://cdercft3pjcmq" path="res://addons/distance_joint_2d/distance_joint_2d.gd" id="5_distance"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x51k"]
 size = Vector2(24, 24)
@@ -33,14 +35,32 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_5x51k")
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody" unique_id=1089404847]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="RigidBody" unique_id=167984191]
+
+[node name="RayAudioListener" type="AudioListener2D" parent="RigidBody" unique_id=400614265]
+script = ExtResource("4_t0g4x")
+metadata/_custom_type_script = "uid://d04qnapdd1u6u"
 
 [node name="RigidHandL" parent="." unique_id=140860852 instance=ExtResource("3_y5mga")]
 unique_name_in_owner = true
 position = Vector2(-43, -52)
+gravity_scale = 0.0
+linear_damp = 1.35
 
 [node name="RigidHandR" parent="." unique_id=896699419 instance=ExtResource("3_y5mga")]
 unique_name_in_owner = true
 position = Vector2(45, -50)
+gravity_scale = 0.0
+linear_damp = 1.35
+
+[node name="DistanceJointL" type="Node2D" parent="." unique_id=1620668467 node_paths=PackedStringArray("links")]
+script = ExtResource("5_distance")
+links = [NodePath("../RigidBody"), NodePath("../RigidHandL")]
+total_distance = 56.0
+
+[node name="DistanceJointR" type="Node2D" parent="." unique_id=1683190886 node_paths=PackedStringArray("links")]
+script = ExtResource("5_distance")
+links = [NodePath("../RigidBody"), NodePath("../RigidHandR")]
+total_distance = 56.0

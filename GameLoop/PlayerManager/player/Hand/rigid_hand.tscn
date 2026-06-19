@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b54ygmn13y6sc" path="res://GameLoop/PlayerManager/player/Hand/HandClose.svg" id="4_y1mj3"]
 [ext_resource type="AudioStream" uid="uid://bwx1upuf63tab" path="res://GameLoop/PlayerManager/player/foley_footstep_concrete_4.wav" id="5_0p8ne"]
 [ext_resource type="Texture2D" uid="uid://codrfycs8mxh1" path="res://GameLoop/PlayerManager/player/Hand/AirGrab.svg" id="5_d1xpj"]
+[ext_resource type="Script" uid="uid://dhk376nm4bg4p" path="res://GameLoop/PlayerManager/player/Hand/WeaponMounter.gd" id="6_weapon_mounter"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ds3h0"]
 rough = true
@@ -17,17 +18,15 @@ size = Vector2(8, 8)
 collision_layer = 0
 collision_priority = 999.0
 physics_material_override = SubResource("PhysicsMaterial_ds3h0")
-gravity_scale = 0.0
-lock_rotation = true
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 8
-linear_damp = 1.35
 angular_damp = 3.0
 script = ExtResource("1_0xl7k")
 
 [node name="Hand" type="Sprite2D" parent="." unique_id=1254007866]
 unique_name_in_owner = true
+rotation = 1.5707964
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_q000y")
 
@@ -36,19 +35,22 @@ unique_name_in_owner = true
 
 [node name="HandClose" type="Sprite2D" parent="Close" unique_id=1370835503]
 unique_name_in_owner = true
-visible = false
-position = Vector2(0, 3)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_y1mj3")
 
 [node name="AirGrab" type="Sprite2D" parent="." unique_id=859369203]
 unique_name_in_owner = true
 visible = false
+rotation = 1.5707964
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_d1xpj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1479295178]
 shape = SubResource("RectangleShape2D_ds3h0")
+
+[node name="WeaponMounter" type="Node2D" parent="." unique_id=810813957]
+unique_name_in_owner = true
+script = ExtResource("6_weapon_mounter")
 
 [node name="WallGrabAudio" type="AudioStreamPlayer2D" parent="." unique_id=1407973382]
 unique_name_in_owner = true

@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://c4gui70u0xk4t"]
 
 [ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="1_2ibkc"]
-[ext_resource type="Script" uid="uid://d4igp77tw5tfg" path="res://GameLoop/TerrainManager/Items/GodotToy/godot_toy.gd" id="1_7ea3w"]
 [ext_resource type="PackedScene" uid="uid://kneqaa1is8qc" path="res://GameLoop/PlayerManager/PlayerSizeSample/PlayerSizeSample.tscn" id="1_rjlrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ibkc"]
 size = Vector2(18, 18)
 
 [node name="GodotToy" type="Node2D" unique_id=1195322324]
-script = ExtResource("1_7ea3w")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1642946126]
 collision_layer = 2
