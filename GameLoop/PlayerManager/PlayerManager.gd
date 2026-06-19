@@ -46,6 +46,10 @@ func get_mounted_weapon(hand_id: HandID) -> Weapon:
 	return _player.get_mounted_weapon(hand_id)
 
 
+func find() -> Player:
+	return _player
+
+
 func _is_valid_hand(hand_id: int) -> bool:
 	if hand_id != HandID.LEFT and hand_id != HandID.RIGHT:
 		push_error("[PlayerManager] Invalid hand ID: %s" % hand_id)

@@ -11,7 +11,7 @@ self_modulate = Color(0, 0, 0, 0)
 color = Color(1, 1, 1, 0.28235295)
 polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
 script = ExtResource("1_ya3uc")
-"可抓取" = null
+metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="AnimatableBody2D" parent="." unique_id=1059130227]
 unique_name_in_owner = true
@@ -27,14 +27,14 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 occluder = SubResource("OccluderPolygon2D_ya3uc")
 
-[node name="VisualPolygon2D" type="Polygon2D" parent="StaticBody2D/Visual" unique_id=2021273492]
-unique_name_in_owner = true
-color = Color(0.8287514, 0.19046408, 0.9999998, 1)
-polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
-
 [node name="VisualPolyLine" type="Line2D" parent="StaticBody2D/Visual" unique_id=265850612]
 unique_name_in_owner = true
 visible = false
 points = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
 closed = true
 width = 5.0
+
+[node name="VisualPolygon2D" type="Polygon2D" parent="StaticBody2D/Visual" unique_id=2021273492]
+unique_name_in_owner = true
+color = Color(0.8287514, 0.19046408, 0.9999998, 1)
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)

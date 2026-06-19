@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0vpl0ycbbejd" path="res://GameLoop/PlayerManager/player/BodyConnect/BodyConnect.tscn" id="4_cvthx"]
 [ext_resource type="Script" uid="uid://d04qnapdd1u6u" path="res://_Libs/SimpleRaytracedAudio2D/RayAudioListener.gd" id="4_t0g4x"]
 [ext_resource type="Script" uid="uid://cdercft3pjcmq" path="res://addons/distance_joint_2d/distance_joint_2d.gd" id="5_distance"]
+[ext_resource type="Script" uid="uid://dc8s0vln4os23" path="res://GameLoop/DamageSystem/HpComponent.gd" id="6_hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x51k"]
 size = Vector2(24, 24)
@@ -40,8 +41,14 @@ zoom = Vector2(1.5, 1.5)
 [node name="AudioListener2D" type="AudioListener2D" parent="RigidBody" unique_id=167984191]
 
 [node name="RayAudioListener" type="AudioListener2D" parent="RigidBody" unique_id=400614265]
+current = true
 script = ExtResource("4_t0g4x")
+muffle_interpolation = 0.2
 metadata/_custom_type_script = "uid://d04qnapdd1u6u"
+
+[node name="HpComponent" type="Node" parent="." unique_id=1747642215]
+script = ExtResource("6_hp")
+receiver_team = 1
 
 [node name="RigidHandL" parent="." unique_id=140860852 instance=ExtResource("3_y5mga")]
 unique_name_in_owner = true

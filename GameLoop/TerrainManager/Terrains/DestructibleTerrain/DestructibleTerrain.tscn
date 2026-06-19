@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dls6dw72sney8"]
+
+[ext_resource type="PackedScene" uid="uid://cm6fnq0vnkij4" path="res://GameLoop/TerrainManager/Terrains/TerrainBase.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://ckyymd8qg3cfh" path="res://GameLoop/TerrainManager/Terrains/DestructibleTerrain/DestructibleTerrain.gd" id="2_destructible"]
+[ext_resource type="Script" uid="uid://dc8s0vln4os23" path="res://GameLoop/DamageSystem/HpComponent.gd" id="3_hp"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_add4s"]
+resource_local_to_scene = true
+polygon = PackedVector2Array(-31, -26, 48, -34, 38, 30, -29, 30)
+
+[node name="DestructibleTerrain" unique_id=1087176212 instance=ExtResource("1_base")]
+polygon = PackedVector2Array(-31, -26, 48, -34, 38, 30, -29, 30)
+script = ExtResource("2_destructible")
+durability = 100.0
+fracture_points = 8
+minimum_shard_area = 30.0
+fracture_impulse = 180.0
+fracture_torque = 25.0
+
+[node name="CollidePolygon2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1059130227) index="0" unique_id=411758791]
+polygon = PackedVector2Array(-31, -26, 48, -34, 38, 30, -29, 30)
+
+[node name="LightOccluder2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="0" unique_id=1573748164]
+occluder = SubResource("OccluderPolygon2D_add4s")
+sdf_collision = false
+
+[node name="VisualPolygon2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="1" unique_id=2021273492]
+color = Color(0.6117647, 0.79607844, 1, 0.34901962)
+polygon = PackedVector2Array(-31, -26, 48, -34, 38, 30, -29, 30)
+
+[node name="VisualPolyLine" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="2" unique_id=265850612]
+points = PackedVector2Array(-31, -26, 48, -34, 38, 30, -29, 30)
+
+[node name="HpComponent" type="Node" parent="." index="1" unique_id=2106980930]
+script = ExtResource("3_hp")

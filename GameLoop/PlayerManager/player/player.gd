@@ -36,6 +36,7 @@ const 手臂半徑 := 56.0
 # Nodes
 @onready var _body: RigidBody2D = $RigidBody
 @onready var _hands: Array[RigidHand] = [$RigidHandL, $RigidHandR]
+@onready var _hp_component: HpComponent = $HpComponent
 
 # Movement state
 var _smooth_targets: Array[Vector2] = [Vector2.ZERO, Vector2.ZERO]
@@ -52,6 +53,14 @@ func _ready() -> void:
 	for i in range(_hands.size()):
 		var hand = _hands[i]
 		_smooth_targets[i] = hand.global_position
+
+
+func get_hp_component() -> HpComponent:
+	return _hp_component
+
+
+func get_body() -> RigidBody2D:
+	return _body
 
 
 func _physics_process(delta: float) -> void:

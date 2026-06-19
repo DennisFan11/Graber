@@ -1,16 +1,41 @@
 [gd_scene format=3 uid="uid://rm47r15j47h5"]
 
 [ext_resource type="Texture2D" uid="uid://dpjaef0iv0dif" path="res://GameLoop/WeaponManager/Weapons/BladeA/BladeA.svg" id="1_r15va"]
-[ext_resource type="Script" uid="uid://mmvvcq5ipqyy" path="res://GameLoop/WeaponManager/Weapons/Weapon.gd" id="2_weapon"]
+[ext_resource type="Script" uid="uid://jo7p0grj2b8a" path="res://GameLoop/WeaponManager/Weapons/BladeA/BladeA.gd" id="2_blade"]
+[ext_resource type="Script" uid="uid://cb8idp5f6cfgl" path="res://_Libs/Trail2D.gd" id="3_trail"]
+
+[sub_resource type="Curve" id="Curve_upbvs"]
+_data = [Vector2(0, 0.61130744), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_trail"]
+colors = PackedColorArray(0.1, 0.75, 1, 0, 0.7, 0.95, 1, 0.9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r15va"]
 size = Vector2(32, 10)
 
 [node name="BladeA" type="Node2D" unique_id=813499528]
-script = ExtResource("2_weapon")
+script = ExtResource("2_blade")
 weapon_name = "刃刀 A"
 icon = ExtResource("1_r15va")
 describe = "適合近距離揮砍的基礎武器。"
+
+[node name="Trail2D" type="Line2D" parent="." unique_id=1796654972]
+show_behind_parent = true
+points = PackedVector2Array(24, -17, 23.999992, -8.47229, 23.999992, -4.724613, 24, 0)
+width = 30.0
+width_curve = SubResource("Curve_upbvs")
+gradient = SubResource("Gradient_trail")
+texture_mode = 2
+script = ExtResource("3_trail")
+emit = false
+target_path = NodePath("../BladeTip")
+follow_space_path = NodePath("../../../..")
+lifetime = 0.18
+distance = 2.0
+segments = 32
+use_initial_position_as_offset = false
+freeze_when_emit_stops = false
 
 [node name="BladeA" type="Sprite2D" parent="." unique_id=1230451003]
 position = Vector2(18.000008, -5.9604645e-08)
@@ -22,3 +47,6 @@ texture = ExtResource("1_r15va")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1467877746]
 position = Vector2(24, 0)
 shape = SubResource("RectangleShape2D_r15va")
+
+[node name="BladeTip" type="Marker2D" parent="." unique_id=188928360]
+position = Vector2(24, 0)

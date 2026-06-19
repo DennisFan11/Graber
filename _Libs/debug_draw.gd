@@ -4,8 +4,13 @@ extends Node2D
 
 
 const DEBUG = true
+const DAMAGE_NUMBER_RISE := 36.0
+const DAMAGE_NUMBER_FONT_SIZE := 22
+
+var _damage_numbers: Array[Dictionary] = []
 
 func _ready() -> void:
+	add_to_group(&"debug_draw")
 	DI.register("_debug_draw", self)
 
 
@@ -62,6 +67,24 @@ func d_draw_circle_edge(center: Vector2, radius: float, color: Color, width: flo
 	),time)
 	# 使用 draw_arc 繪製 0 到 360 度 (TAU) 的弧線
 	# 參數：圓心, 半徑, 起始角, 結束角, 解析度(點數), 顏色, 線寬, 抗鋸齒
+
+
+func d_draw_damage_number(
+	global_position: Vector2,
+	damage: float,
+	receiver_team: DamageSystem.TEAM = DamageSystem.TEAM.IDLE,
+	time: float = 0.8
+) -> void:
+	if damage <= 0.0 or time <= 0.0:
+		return
+
+	_damage_numbers.append({
+		"global_position": global_position,
+		"text": _format_damage(damage),
+		"color": _damage_color(receiver_team),
+		"remaining": time,
+		"duration": time,
+	})
 	
 	
 
@@ -120,6 +143,10 @@ func _free_draw(draw_id: int):
 	_draw_map.erase(draw_id)
 
 func _process(delta: float) -> void:
+	for index in range(_damage_numbers.size() - 1, -1, -1):
+		_damage_numbers[index].remaining -= delta
+		if _damage_numbers[index].remaining <= 0.0:
+			_damage_numbers.remove_at(index)
 	queue_redraw()
 
 var _draw_id:int = 0
@@ -131,5 +158,45 @@ func _draw() -> void:
 	#print("Debug draw start")
 	for i: Callable in _draw_map.values():
 		i.call()
+	_draw_damage_numbers()
 	draw_finish.emit()
 		#print("Draw")
+
+
+func _draw_damage_numbers() -> void:
+	var font := ThemeDB.fallback_font
+	for number in _damage_numbers:
+		var progress: float = 1.0 - number.remaining / number.duration
+		var position := to_local(number.global_position)
+		position.y -= progress * DAMAGE_NUMBER_RISE
+
+		var text: String = number.text
+		var color: Color = number.color
+		color.a *= 1.0 - progress
+		var text_width := font.get_string_size(
+			text,
+			HORIZONTAL_ALIGNMENT_LEFT,
+			-1,
+			DAMAGE_NUMBER_FONT_SIZE
+		).x
+		position.x -= text_width * 0.5
+
+		var shadow := Color(0.0, 0.0, 0.0, color.a * 0.85)
+		draw_string(font, position + Vector2(2.0, 2.0), text, HORIZONTAL_ALIGNMENT_LEFT, -1, DAMAGE_NUMBER_FONT_SIZE, shadow)
+		draw_string(font, position, text, HORIZONTAL_ALIGNMENT_LEFT, -1, DAMAGE_NUMBER_FONT_SIZE, color)
+
+
+func _format_damage(damage: float) -> String:
+	if is_equal_approx(damage, roundf(damage)):
+		return str(roundi(damage))
+	return "%.1f" % damage
+
+
+func _damage_color(team: DamageSystem.TEAM) -> Color:
+	match team:
+		DamageSystem.TEAM.PLAYER:
+			return Color(1.0, 0.25, 0.2)
+		DamageSystem.TEAM.ENEMY:
+			return Color(1.0, 0.75, 0.15)
+		_:
+			return Color.WHITE

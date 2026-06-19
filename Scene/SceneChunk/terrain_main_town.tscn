@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://omjxjpy5fkdl" path="res://_Libs/SimpleRaytracedAudio2D/RayAudioPlayer.gd" id="5_c84rt"]
 [ext_resource type="PackedScene" uid="uid://c4gui70u0xk4t" path="res://GameLoop/TerrainManager/Items/GodotToy/GodotToy.tscn" id="5_gyihc"]
 [ext_resource type="AudioStream" uid="uid://c70l4lg1gpe2j" path="res://asset/maou_14_shining_star.ogg" id="5_s15fa"]
+[ext_resource type="PackedScene" uid="uid://dls6dw72sney8" path="res://GameLoop/TerrainManager/Terrains/DestructibleTerrain/DestructibleTerrain.tscn" id="7_s15fa"]
+[ext_resource type="PackedScene" uid="uid://ckp5bwktb83tt" path="res://GameLoop/TerrainManager/Terrains/GlassTerrain/GlassTerrain.tscn" id="8_s7h2o"]
 
 [node name="TerrainMainTown" type="Node2D" unique_id=43586993]
 
@@ -26,7 +28,7 @@ polygon = PackedVector2Array(-1168.8444, -517.44824, -572.84436, -622.44824, -11
 
 [node name="TerrainDarkRock" parent="." unique_id=738475140 instance=ExtResource("3_iir8h")]
 position = Vector2(-376.3114, 467.65616)
-polygon = PackedVector2Array(-183.6886, 138.34384, 488.3114, -371.65616, 532.3114, -312.65616, 468.3114, 119.34384, 297.3114, 601.3439, 282.3114, 1342.3439, -471.6886, 1816.3439, -977.6886, 950.3439, -1096.6886, 132.34384)
+polygon = PackedVector2Array(-183.6886, 138.34384, 488.3114, -371.65616, 532.3114, -312.65616, 468.3114, 119.34384, 297.3114, 601.3439, 966.3114, 1131.3439, 846.3114, 1548.3439, 282.3114, 1342.3439, -471.6886, 1816.3439, -977.6886, 950.3439, -1096.6886, 132.34384)
 
 [node name="TerrainDarkRock2" parent="." unique_id=1095240079 instance=ExtResource("3_iir8h")]
 position = Vector2(1757, 22)
@@ -134,9 +136,28 @@ polygon = PackedVector2Array(-11.857178, -20.859009, -1, -27, 21.142822, -18.859
 position = Vector2(-218.36699, -1472.1543)
 polygon = PackedVector2Array(-12.633011, 3.1542969, -0.63301086, -11.845703, 25.36699, -6.845703, 43.36699, 24.154297, -3.6330109, 13.154297)
 
+[node name="DestructibleTerrain" parent="." unique_id=1087176212 instance=ExtResource("7_s15fa")]
+position = Vector2(162.22034, -109.63672)
+impact_direction_weight = 1.0
+radial_spread_weight = 0.65
+shard_disappear_duration = 2.0
+
 [node name="RayAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=994295834]
 position = Vector2(-362, -1448)
 stream = ExtResource("5_s15fa")
+volume_db = 8.0
 autoplay = true
+max_distance = 8000.0
 script = ExtResource("5_c84rt")
 metadata/_custom_type_script = "uid://omjxjpy5fkdl"
+
+[node name="GlassTerrain" parent="." unique_id=854778461 instance=ExtResource("8_s7h2o")]
+position = Vector2(60.769318, -131.24316)
+shard_disappear_duration = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://GameLoop/DamageSystem/HpComponent.gd"),"receiver_team":0,"max_hp":100.0,"start_with_max_hp":true,"initial_hp":100.0)
+
+
+[node name="GlassTerrain2" parent="." unique_id=1084136622 instance=ExtResource("8_s7h2o")]
+position = Vector2(-564.46545, -1315.3252)
+polygon = PackedVector2Array(-75.534546, 13.325195, 98.465454, -7.6748047, 116.465454, 29.325195, -61.534546, 32.325195)
+shard_disappear_duration = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://GameLoop/DamageSystem/HpComponent.gd"),"receiver_team":0,"max_hp":100.0,"start_with_max_hp":true,"initial_hp":100.0)
+
