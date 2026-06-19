@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://ds3f4gb0favoh" path="res://GameLoop/TerrainManager/TerrainManager.tscn" id="1_3fct8"]
 [ext_resource type="PackedScene" uid="uid://dddarmcyhm6i7" path="res://GameLoop/PlayerManager/PlayerManager.tscn" id="2_rr7t6"]
 [ext_resource type="Texture2D" uid="uid://bet51fa6guqif" path="res://icon.svg" id="3_af654"]
+[ext_resource type="Script" uid="uid://c73cjuix6b2ot" path="res://_Libs/debug_draw.gd" id="4_2sn7p"]
+[ext_resource type="PackedScene" path="res://GameLoop/WeaponManager/WeaponManager.tscn" id="5_weapon_manager"]
+[ext_resource type="PackedScene" uid="uid://omciaggl88et" path="res://GameLoop/PlayerManager/PlayerUI/PlayerUI.tscn" id="6_xb8nv"]
 
 [sub_resource type="Shader" id="Shader_2sn7p"]
 code = "shader_type canvas_item;
@@ -79,12 +82,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.21176471, 0.35686275, 1)
 
+[node name="PlayerUI" parent="." unique_id=1530750117 instance=ExtResource("6_xb8nv")]
+
 [node name="Background" type="Polygon2D" parent="." unique_id=1528149145]
 visible = false
 color = Color(0.5609549, 0.5609549, 0.5609549, 1)
 polygon = PackedVector2Array(-60640, -47580, 67488, -52444, 67616, 29604, -56032, 25124)
 
 [node name="TerrainManager" parent="." unique_id=1889502423 instance=ExtResource("1_3fct8")]
+
+[node name="WeaponManager" parent="." unique_id=447982112 instance=ExtResource("5_weapon_manager")]
 
 [node name="PlayerManager" parent="." unique_id=1325859206 instance=ExtResource("2_rr7t6")]
 
@@ -93,6 +100,9 @@ visible = false
 material = SubResource("ShaderMaterial_2sn7p")
 position = Vector2(205, 6)
 texture = ExtResource("3_af654")
+
+[node name="DebugDraw" type="Node2D" parent="." unique_id=1520349656]
+script = ExtResource("4_2sn7p")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=999142605]
 environment = SubResource("Environment_rr7t6")

@@ -4,7 +4,7 @@ extends Polygon2D
 
 
 @export var 可抓取: bool = true
-func can_grab()-> bool:
+func can_grab() -> bool:
 	return 可抓取
 	
 func _ready():

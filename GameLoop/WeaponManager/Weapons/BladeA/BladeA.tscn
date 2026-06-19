@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://rm47r15j47h5"]
+
+[ext_resource type="Texture2D" uid="uid://dpjaef0iv0dif" path="res://GameLoop/WeaponManager/Weapons/BladeA/BladeA.svg" id="1_r15va"]
+[ext_resource type="Script" uid="uid://mmvvcq5ipqyy" path="res://GameLoop/WeaponManager/Weapons/Weapon.gd" id="2_weapon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r15va"]
+size = Vector2(32, 10)
+
+[node name="BladeA" type="Node2D" unique_id=813499528]
+script = ExtResource("2_weapon")
+weapon_name = "刃刀 A"
+icon = ExtResource("1_r15va")
+describe = "適合近距離揮砍的基礎武器。"
+
+[node name="BladeA" type="Sprite2D" parent="." unique_id=1230451003]
+position = Vector2(18.000008, -5.9604645e-08)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_r15va")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=683508102]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1467877746]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_r15va")

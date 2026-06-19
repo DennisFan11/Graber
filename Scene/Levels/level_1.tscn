@@ -18,7 +18,7 @@ metadata/_edit_group_ = true
 
 [node name="TerrainRock" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="0" unique_id=1422216466 instance=ExtResource("2_sxagu")]
 position = Vector2(-3268, -2417.8145)
-polygon = PackedVector2Array(-22, 8, 2, 8, 42, 8, 54, 123, -86, 112, -202, 54, -116, 44, -94, 0, -62, 0)
+polygon = PackedVector2Array(-22, 8, 2, 8, 42, 8, 54, 123, -86, 112, -202, 54, -116, 44, -115, -8.185547, -62, 0)
 
 [node name="TerrainRock2" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="1" unique_id=520776126 instance=ExtResource("2_sxagu")]
 position = Vector2(-3386, -2449.8145)
@@ -55,6 +55,3 @@ polygon = PackedVector2Array(-867, -224, -770, -385, -630, -419, -446, -392, -22
 
 [node name="GrassHill" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="10" unique_id=731877767 instance=ExtResource("4_obhsb")]
 position = Vector2(-180, -1648)
-
-[node name="PlayerManager" parent="." index="3" unique_id=1325859206]
-position = Vector2(-28, -1716)
