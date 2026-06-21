@@ -89,7 +89,7 @@ func _spawn_shard(
 ) -> void:
 	var shard := RigidBody2D.new()
 	shard.name = "%sShard" % name
-	#shard.collision_layer = %StaticBody2D.collision_layer
+	shard.collision_layer = 0
 	shard.collision_mask = %StaticBody2D.collision_mask
 	parent.add_child(shard)
 	_exclude_player_collisions(shard)

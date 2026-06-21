@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dx1m56xp06hwg" path="res://GameLoop/TerrainManager/Terrains/Rock/TerrainRock.tscn" id="2_sxagu"]
 [ext_resource type="PackedScene" uid="uid://bsd04ev4jyyhy" path="res://Scene/SceneChunk/GrassHill.tscn" id="4_obhsb"]
 [ext_resource type="PackedScene" uid="uid://c1y4voqbex4hh" path="res://Scene/SceneChunk/terrain_main_town.tscn" id="4_pporg"]
+[ext_resource type="AudioStream" uid="uid://bvf57vpk1764q" path="res://asset/Window.wav" id="5_auucd"]
+[ext_resource type="Script" uid="uid://omjxjpy5fkdl" path="res://_Libs/SimpleRaytracedAudio2D/RayAudioPlayer.gd" id="6_wm77i"]
 
 [node name="Level1" unique_id=1934627509 instance=ExtResource("1_8twhv")]
 
@@ -55,3 +57,11 @@ polygon = PackedVector2Array(-867, -224, -770, -385, -630, -419, -446, -392, -22
 
 [node name="GrassHill" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="10" unique_id=731877767 instance=ExtResource("4_obhsb")]
 position = Vector2(-180, -1648)
+
+[node name="RayAudioPlayer" type="AudioStreamPlayer2D" parent="TerrainManager" parent_id_path=PackedInt32Array(1889502423) index="11" unique_id=1772564623]
+position = Vector2(-295, -2248)
+stream = ExtResource("5_auucd")
+autoplay = true
+max_distance = 8000.0
+script = ExtResource("6_wm77i")
+metadata/_custom_type_script = "uid://omjxjpy5fkdl"

@@ -2,12 +2,12 @@
 class_name GrassPlacer
 extends Line2D
 
-@export var search_r: float = 50.0:
+@export var search_r: float = 70.0:
 	set(v):
 		search_r = max(v, 0.0)
 		_changed()
 
-@export var step: float = 5.0:
+@export var step: float = 7.0:
 	set(v):
 		step = max(v, 0.1)
 		_changed()

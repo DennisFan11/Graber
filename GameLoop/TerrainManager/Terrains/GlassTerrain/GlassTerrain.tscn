@@ -14,10 +14,12 @@ polygon = PackedVector2Array(-31, -26, 31, -28, 38, 30, -29, 30)
 script = ExtResource("2_glass")
 shadow_extrusion_length = 9000.0
 shadow_base_offset = 0.0
+durability = 25.0
+fracture_points = 14
+fracture_impulse = 1000.0
 impact_direction_weight = 1.0
 radial_spread_weight = 0.65
-shard_disappear_duration = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://GameLoop/DamageSystem/HpComponent.gd"),"receiver_team":0,"max_hp":100.0,"start_with_max_hp":true,"initial_hp":100.0)
-
+shard_disappear_duration = 2.0
 
 [node name="CollidePolygon2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1059130227) index="0" unique_id=411758791]
 visible = false

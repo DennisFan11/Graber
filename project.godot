@@ -23,6 +23,10 @@ DI="*uid://dcyj744h35qmf"
 
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="/Users/dennisfan/Movies/Graber.avi"
+
 [file_customization]
 
 folder_colors={

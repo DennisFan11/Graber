@@ -3,10 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dx1m56xp06hwg" path="res://GameLoop/TerrainManager/Terrains/Rock/TerrainRock.tscn" id="1_ky7tu"]
 [ext_resource type="PackedScene" uid="uid://kneqaa1is8qc" path="res://GameLoop/PlayerManager/PlayerSizeSample/PlayerSizeSample.tscn" id="2_dqkqq"]
 [ext_resource type="PackedScene" uid="uid://drtpdty0q0yxx" path="res://GameLoop/TerrainManager/Terrains/DarkRock/terrain_dark_rock.tscn" id="3_iir8h"]
-[ext_resource type="Script" uid="uid://omjxjpy5fkdl" path="res://_Libs/SimpleRaytracedAudio2D/RayAudioPlayer.gd" id="5_c84rt"]
 [ext_resource type="PackedScene" uid="uid://c4gui70u0xk4t" path="res://GameLoop/TerrainManager/Items/GodotToy/GodotToy.tscn" id="5_gyihc"]
-[ext_resource type="AudioStream" uid="uid://c70l4lg1gpe2j" path="res://asset/maou_14_shining_star.ogg" id="5_s15fa"]
-[ext_resource type="PackedScene" uid="uid://dls6dw72sney8" path="res://GameLoop/TerrainManager/Terrains/DestructibleTerrain/DestructibleTerrain.tscn" id="7_s15fa"]
 [ext_resource type="PackedScene" uid="uid://ckp5bwktb83tt" path="res://GameLoop/TerrainManager/Terrains/GlassTerrain/GlassTerrain.tscn" id="8_s7h2o"]
 
 [node name="TerrainMainTown" type="Node2D" unique_id=43586993]
@@ -136,28 +133,11 @@ polygon = PackedVector2Array(-11.857178, -20.859009, -1, -27, 21.142822, -18.859
 position = Vector2(-218.36699, -1472.1543)
 polygon = PackedVector2Array(-12.633011, 3.1542969, -0.63301086, -11.845703, 25.36699, -6.845703, 43.36699, 24.154297, -3.6330109, 13.154297)
 
-[node name="DestructibleTerrain" parent="." unique_id=1087176212 instance=ExtResource("7_s15fa")]
-position = Vector2(162.22034, -109.63672)
-impact_direction_weight = 1.0
-radial_spread_weight = 0.65
-shard_disappear_duration = 2.0
-
-[node name="RayAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=994295834]
-position = Vector2(-362, -1448)
-stream = ExtResource("5_s15fa")
-volume_db = 8.0
-autoplay = true
-max_distance = 8000.0
-script = ExtResource("5_c84rt")
-metadata/_custom_type_script = "uid://omjxjpy5fkdl"
-
 [node name="GlassTerrain" parent="." unique_id=854778461 instance=ExtResource("8_s7h2o")]
 position = Vector2(60.769318, -131.24316)
-shard_disappear_duration = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://GameLoop/DamageSystem/HpComponent.gd"),"receiver_team":0,"max_hp":100.0,"start_with_max_hp":true,"initial_hp":100.0)
-
+shard_disappear_duration = 2.0
 
 [node name="GlassTerrain2" parent="." unique_id=1084136622 instance=ExtResource("8_s7h2o")]
 position = Vector2(-564.46545, -1315.3252)
 polygon = PackedVector2Array(-75.534546, 13.325195, 98.465454, -7.6748047, 116.465454, 29.325195, -61.534546, 32.325195)
-shard_disappear_duration = Object(Node,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://GameLoop/DamageSystem/HpComponent.gd"),"receiver_team":0,"max_hp":100.0,"start_with_max_hp":true,"initial_hp":100.0)
-
+shard_disappear_duration = 2.0

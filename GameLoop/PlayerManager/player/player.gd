@@ -234,8 +234,7 @@ func _start_wall_grab_vibration(hand_index: int) -> void:
 
 
 func _is_touching_grab_surface(hand: RigidHand) -> bool:
-	for collider in hand.get_colliding_bodies():
-		var surface := collider.get_parent()
+	for surface in hand.get_grab_surfaces():
 		if surface.has_method(&"can_grab") and surface.can_grab():
 			return true
 	return false

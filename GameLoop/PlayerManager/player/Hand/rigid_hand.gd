@@ -3,10 +3,16 @@ extends RigidBody2D
 
 enum GRAB_TYPE {IDLE, AIR_GRAB, WALL_GRAB}
 
+@export var 柔性抓取反向力道: float = 1400.0
+
 @onready var _weapon_mounter: WeaponMounter = %WeaponMounter
+@onready var _grab_sensor: Area2D = %GrabSensor
 
 var grab_type: GRAB_TYPE = GRAB_TYPE.IDLE:
 	set(value):
+		if value != GRAB_TYPE.WALL_GRAB:
+			_clear_grab_constraint_provider()
+
 		%HandClose.visible = false
 		%Hand.visible = false
 		%AirGrab.visible = false
@@ -24,6 +30,8 @@ var grab_type: GRAB_TYPE = GRAB_TYPE.IDLE:
 
 		grab_type = value
 
+var _grab_constraint_provider: Node
+
 
 func _ready() -> void:
 	grab_type = grab_type
@@ -36,7 +44,14 @@ func rotate_to_input(
 	rotation_damping: float,
 	max_torque: float
 ) -> void:
-	if grab_type == GRAB_TYPE.WALL_GRAB or input_vec.length() < deadzone:
+	if grab_type == GRAB_TYPE.WALL_GRAB:
+		if _grab_constraint_provider != null and input_vec.length() >= deadzone:
+			apply_central_force(
+				-input_vec.limit_length(1.0) * maxf(柔性抓取反向力道, 0.0)
+			)
+		return
+
+	if input_vec.length() < deadzone:
 		return
 
 	var angle_error := wrapf(input_vec.angle() - rotation, -PI, PI)
@@ -60,6 +75,73 @@ func align_texture_to_contact_normal() -> void:
 		var close_parent := %HandClose.get_parent() as Node2D
 		var local_normal := close_parent.global_transform.basis_xform_inv(normal.normalized())
 		%HandClose.rotation = local_normal.angle() + PI / 2.0
+
+
+func get_grab_surfaces() -> Array[Node]:
+	var surfaces: Array[Node] = []
+
+	for collider in get_colliding_bodies():
+		var surface := collider.get_parent()
+		if not surfaces.has(surface):
+			surfaces.append(surface)
+
+	for area in _grab_sensor.get_overlapping_areas():
+		var surface := area.get_parent()
+		if not surfaces.has(surface):
+			surfaces.append(surface)
+
+	return surfaces
+
+
+func configure_grab_constraint(
+	provider: Node,
+	anchor_global_position: Vector2,
+	max_distance: float
+) -> bool:
+	if _grab_constraint_provider != null and _grab_constraint_provider != provider:
+		return false
+
+	for child in get_parent().get_children():
+		if (
+			child is DistanceJoint2D
+			and child.links.size() == 1
+			and child.links.has(self)
+			and child.pivot != NodePath("")
+		):
+			var anchor := child.get_node(child.pivot) as Node2D
+			anchor.global_position = anchor_global_position
+			child.total_distance = maxf(max_distance, 0.0)
+			child.fixed_distance = true
+			_grab_constraint_provider = provider
+			%HandClose.visible = false
+			%Hand.visible = false
+			%AirGrab.visible = true
+			return true
+
+	return false
+
+
+func release_grab_constraint(provider: Node) -> void:
+	if _grab_constraint_provider != provider:
+		return
+
+	for child in get_parent().get_children():
+		if (
+			child is DistanceJoint2D
+			and child.links.size() == 1
+			and child.links.has(self)
+			and child.pivot != NodePath("")
+		):
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			child.queue_free()
+			break
+
+	_clear_grab_constraint_provider()
+	grab_type = GRAB_TYPE.IDLE
+
+
+func _clear_grab_constraint_provider() -> void:
+	_grab_constraint_provider = null
 
 
 func mount_weapon(weapon: Weapon) -> bool:

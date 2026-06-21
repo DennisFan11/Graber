@@ -80,20 +80,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.21176471, 0.35686275, 1)
+color = Color(3.970787e-07, 0.17614865, 0.30187467, 1)
 
 [node name="PlayerUI" parent="." unique_id=1530750117 instance=ExtResource("6_xb8nv")]
 
 [node name="Background" type="Polygon2D" parent="." unique_id=1528149145]
-visible = false
-color = Color(0.5609549, 0.5609549, 0.5609549, 1)
+color = Color(0.0121873375, 0.10272046, 0.19716209, 1)
 polygon = PackedVector2Array(-60640, -47580, 67488, -52444, 67616, 29604, -56032, 25124)
+
+[node name="PlayerManager" parent="." unique_id=1325859206 instance=ExtResource("2_rr7t6")]
 
 [node name="TerrainManager" parent="." unique_id=1889502423 instance=ExtResource("1_3fct8")]
 
 [node name="WeaponManager" parent="." unique_id=447982112 instance=ExtResource("5_weapon_manager")]
-
-[node name="PlayerManager" parent="." unique_id=1325859206 instance=ExtResource("2_rr7t6")]
 
 [node name="GlowIcon" type="Sprite2D" parent="." unique_id=1935881943]
 visible = false

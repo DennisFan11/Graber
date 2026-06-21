@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c2xihx346kbtt" path="res://GameLoop/TerrainManager/TerrainGrass/GrassPlacer/GrassPlacer.tscn" id="4_qgigk"]
 [ext_resource type="PackedScene" uid="uid://b55ygag54j81w" path="res://GameLoop/TerrainManager/TerrainGrass/Grass/Grass.tscn" id="5_u1fpq"]
 [ext_resource type="Script" uid="uid://um61pp3td7bx" path="res://GameLoop/TerrainManager/TerrainGrass/Grass/grass.gd" id="6_sadf1"]
+[ext_resource type="PackedScene" uid="uid://ckp5bwktb83tt" path="res://GameLoop/TerrainManager/Terrains/GlassTerrain/GlassTerrain.tscn" id="7_lee2c"]
+[ext_resource type="PackedScene" uid="uid://na8sywx60lwc" path="res://GameLoop/TerrainManager/Terrains/Dirt/terrain_dirt.tscn" id="8_qgigk"]
 
 [node name="GrassHill" type="Node2D" unique_id=731877767]
 
@@ -19,7 +21,7 @@ polygon = PackedVector2Array(-83, -14, -8, -40, 277, -44, 280, 42, 63, 47, -48, 
 
 [node name="TerrainDarkRock2" parent="." unique_id=1574853568 instance=ExtResource("1_wow58")]
 position = Vector2(443.41934, -50.240982)
-polygon = PackedVector2Array(182.58066, -208.75902, 392.58066, -167.75902, 545.5807, 164.24098, 226.58066, 380.24097, -60.419342, 145.24098, -62.419342, 62.240982, 82.58066, -67.75902)
+polygon = PackedVector2Array(182.58066, -208.75902, 392.58066, -167.75902, 545.5807, 164.24098, 226.58066, 380.24097, -60.419342, 145.24098, -62.419342, 62.240982, 51.580658, -68.75902)
 
 [node name="PlayerSizeSample" parent="." unique_id=1896592248 instance=ExtResource("3_lee2c")]
 position = Vector2(0, -20)
@@ -28,702 +30,1244 @@ position = Vector2(0, -20)
 position = Vector2(132, 2)
 polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 67, -22, 88, -24, 163, -20, 217, -26, 291, -16, 273, 19, 114, 19, -38, 12)
 
-[node name="TerrainRock3" parent="." unique_id=227468600 instance=ExtResource("2_sadf1")]
-position = Vector2(102, -254)
-polygon = PackedVector2Array(-34, -14, -1, -27, 26, -24, 322, -25, 348, 9, 413, 142, 340, 192, 294, 92, 232, 9, -19, 19)
-
 [node name="GrassPlacer" parent="." unique_id=1624601230 instance=ExtResource("4_qgigk")]
 position = Vector2(424.8991, -38.998306)
-points = PackedVector2Array(4.100891, -18.001694, -12.899109, -35.001694, -29.899109, -79.00169, -94.89911, -197.0017, -120.89911, -180.0017, -198.89911, -181.0017, -331.8991, -171.0017)
-step = 4.0
+points = PackedVector2Array(-12.899109, -57.001694, -29.899109, -79.00169, -96.89911, -203.0017, -120.89911, -180.0017, -198.89911, -181.0017, -347.8991, -187.0017, -376.8991, -192.0017, -381.8991, -214.0017, -369.8991, -244.0017, -377.8991, -247.0017)
+step = 6.0
 generate_on_ready = true
 
 [node name="GeneratedGrass_0000" type="Node2D" parent="GrassPlacer" unique_id=450225615 instance=ExtResource("5_u1fpq")]
-position = Vector2(16.95221, -23.32489)
-rotation = 2.710454
+position = Vector2(10.785675, -66.812256)
+rotation = 2.7707014
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0001" type="Node2D" parent="GrassPlacer" unique_id=828350190 instance=ExtResource("5_u1fpq")]
-position = Vector2(15.406708, -26.684723)
-rotation = 2.710454
+[node name="GeneratedGrass_0001" type="Node2D" parent="GrassPlacer" unique_id=604028229 instance=ExtResource("5_u1fpq")]
+position = Vector2(8.686523, -72.21009)
+rotation = 2.7707014
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0002" type="Node2D" parent="GrassPlacer" unique_id=1102003409 instance=ExtResource("5_u1fpq")]
-position = Vector2(13.861176, -30.04454)
-rotation = 2.710454
+[node name="GeneratedGrass_0002" type="Node2D" parent="GrassPlacer" unique_id=1238224755 instance=ExtResource("5_u1fpq")]
+position = Vector2(6.5873413, -77.60791)
+rotation = 2.7707014
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0003" type="Node2D" parent="GrassPlacer" unique_id=221498943 instance=ExtResource("5_u1fpq")]
-position = Vector2(12.315674, -33.404373)
-rotation = 2.710454
+[node name="GeneratedGrass_0003" type="Node2D" parent="GrassPlacer" unique_id=157895915 instance=ExtResource("5_u1fpq")]
+position = Vector2(4.48822, -83.00574)
+rotation = 2.7707014
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0004" type="Node2D" parent="GrassPlacer" unique_id=1751611109 instance=ExtResource("5_u1fpq")]
-position = Vector2(10.770142, -36.76419)
-rotation = 2.710454
+[node name="GeneratedGrass_0004" type="Node2D" parent="GrassPlacer" unique_id=482123991 instance=ExtResource("5_u1fpq")]
+position = Vector2(2.389038, -88.40357)
+rotation = 2.7707014
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0005" type="Node2D" parent="GrassPlacer" unique_id=744972087 instance=ExtResource("5_u1fpq")]
-position = Vector2(9.224609, -40.124023)
-rotation = 2.710454
+[node name="GeneratedGrass_0005" type="Node2D" parent="GrassPlacer" unique_id=866573198 instance=ExtResource("5_u1fpq")]
+position = Vector2(1.0585632, -91.82478)
+rotation = 2.7707014
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0006" type="Node2D" parent="GrassPlacer" unique_id=1555057429 instance=ExtResource("5_u1fpq")]
-position = Vector2(7.6791077, -43.48384)
-rotation = 2.710454
+[node name="GeneratedGrass_0006" type="Node2D" parent="GrassPlacer" unique_id=1893913018 instance=ExtResource("5_u1fpq")]
+position = Vector2(-1.1051636, -97.38869)
+rotation = 2.7707014
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0007" type="Node2D" parent="GrassPlacer" unique_id=1195338172 instance=ExtResource("5_u1fpq")]
-position = Vector2(7.663025, -43.518814)
-rotation = 2.710454
+[node name="GeneratedGrass_0007" type="Node2D" parent="GrassPlacer" unique_id=2089507871 instance=ExtResource("5_u1fpq")]
+position = Vector2(-12.096924, -113.06572)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0008" type="Node2D" parent="GrassPlacer" unique_id=2141316008 instance=ExtResource("5_u1fpq")]
-position = Vector2(5.990631, -47.154404)
-rotation = 2.710454
+[node name="GeneratedGrass_0008" type="Node2D" parent="GrassPlacer" unique_id=2038457382 instance=ExtResource("5_u1fpq")]
+position = Vector2(-15.787933, -117.50566)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0009" type="Node2D" parent="GrassPlacer" unique_id=1412210387 instance=ExtResource("5_u1fpq")]
-position = Vector2(4.318268, -50.79001)
-rotation = 2.710454
+[node name="GeneratedGrass_0009" type="Node2D" parent="GrassPlacer" unique_id=1283228247 instance=ExtResource("5_u1fpq")]
+position = Vector2(-19.478973, -121.94557)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0010" type="Node2D" parent="GrassPlacer" unique_id=2080291042 instance=ExtResource("5_u1fpq")]
-position = Vector2(2.6459045, -54.425613)
-rotation = 2.710454
+[node name="GeneratedGrass_0010" type="Node2D" parent="GrassPlacer" unique_id=246443630 instance=ExtResource("5_u1fpq")]
+position = Vector2(-23.169983, -126.38548)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0011" type="Node2D" parent="GrassPlacer" unique_id=70672570 instance=ExtResource("5_u1fpq")]
-position = Vector2(0.97351074, -58.06122)
-rotation = 2.710454
+[node name="GeneratedGrass_0011" type="Node2D" parent="GrassPlacer" unique_id=835076030 instance=ExtResource("5_u1fpq")]
+position = Vector2(-26.860992, -130.82541)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0012" type="Node2D" parent="GrassPlacer" unique_id=2127758237 instance=ExtResource("5_u1fpq")]
-position = Vector2(-0.69885254, -61.696808)
-rotation = 2.710454
+[node name="GeneratedGrass_0012" type="Node2D" parent="GrassPlacer" unique_id=1415247978 instance=ExtResource("5_u1fpq")]
+position = Vector2(-30.552002, -135.26534)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0013" type="Node2D" parent="GrassPlacer" unique_id=565677048 instance=ExtResource("5_u1fpq")]
-position = Vector2(-2.3712463, -65.33241)
-rotation = 2.710454
+[node name="GeneratedGrass_0013" type="Node2D" parent="GrassPlacer" unique_id=331250742 instance=ExtResource("5_u1fpq")]
+position = Vector2(-34.24301, -139.70525)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0014" type="Node2D" parent="GrassPlacer" unique_id=1004318112 instance=ExtResource("5_u1fpq")]
-position = Vector2(-4.0436096, -68.96802)
-rotation = 2.710454
+[node name="GeneratedGrass_0014" type="Node2D" parent="GrassPlacer" unique_id=892068760 instance=ExtResource("5_u1fpq")]
+position = Vector2(-37.93405, -144.14517)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0015" type="Node2D" parent="GrassPlacer" unique_id=106692183 instance=ExtResource("5_u1fpq")]
-position = Vector2(-5.7160034, -72.60361)
-rotation = 2.710454
+[node name="GeneratedGrass_0015" type="Node2D" parent="GrassPlacer" unique_id=2011752138 instance=ExtResource("5_u1fpq")]
+position = Vector2(-41.62506, -148.58508)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0016" type="Node2D" parent="GrassPlacer" unique_id=1869595257 instance=ExtResource("5_u1fpq")]
-position = Vector2(-7.3883667, -76.23921)
-rotation = 2.710454
+[node name="GeneratedGrass_0016" type="Node2D" parent="GrassPlacer" unique_id=1973084259 instance=ExtResource("5_u1fpq")]
+position = Vector2(-45.31607, -153.025)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0017" type="Node2D" parent="GrassPlacer" unique_id=329033713 instance=ExtResource("5_u1fpq")]
-position = Vector2(-9.06073, -79.8748)
-rotation = 2.710454
+[node name="GeneratedGrass_0017" type="Node2D" parent="GrassPlacer" unique_id=1270301378 instance=ExtResource("5_u1fpq")]
+position = Vector2(-49.00708, -157.4649)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0018" type="Node2D" parent="GrassPlacer" unique_id=187962710 instance=ExtResource("5_u1fpq")]
-position = Vector2(-10.733124, -83.51042)
-rotation = 2.710454
+[node name="GeneratedGrass_0018" type="Node2D" parent="GrassPlacer" unique_id=2112113910 instance=ExtResource("5_u1fpq")]
+position = Vector2(-52.69809, -161.90482)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0019" type="Node2D" parent="GrassPlacer" unique_id=689864977 instance=ExtResource("5_u1fpq")]
-position = Vector2(-12.058441, -86.39154)
-rotation = 2.710454
+[node name="GeneratedGrass_0019" type="Node2D" parent="GrassPlacer" unique_id=670083273 instance=ExtResource("5_u1fpq")]
+position = Vector2(-56.3891, -166.34474)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0020" type="Node2D" parent="GrassPlacer" unique_id=841637224 instance=ExtResource("5_u1fpq")]
-position = Vector2(-13.721039, -90.00589)
-rotation = 2.710454
+[node name="GeneratedGrass_0020" type="Node2D" parent="GrassPlacer" unique_id=1388799759 instance=ExtResource("5_u1fpq")]
+position = Vector2(-60.08014, -170.78465)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0021" type="Node2D" parent="GrassPlacer" unique_id=1461785990 instance=ExtResource("5_u1fpq")]
-position = Vector2(-15.383636, -93.620255)
-rotation = 2.710454
+[node name="GeneratedGrass_0021" type="Node2D" parent="GrassPlacer" unique_id=102016906 instance=ExtResource("5_u1fpq")]
+position = Vector2(-63.77115, -175.22456)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0022" type="Node2D" parent="GrassPlacer" unique_id=1096140084 instance=ExtResource("5_u1fpq")]
-position = Vector2(-17.046234, -97.234604)
-rotation = 2.710454
+[node name="GeneratedGrass_0022" type="Node2D" parent="GrassPlacer" unique_id=758251498 instance=ExtResource("5_u1fpq")]
+position = Vector2(-67.46216, -179.66449)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0023" type="Node2D" parent="GrassPlacer" unique_id=1404512029 instance=ExtResource("5_u1fpq")]
-position = Vector2(-18.708832, -100.84895)
-rotation = 2.710454
+[node name="GeneratedGrass_0023" type="Node2D" parent="GrassPlacer" unique_id=200547992 instance=ExtResource("5_u1fpq")]
+position = Vector2(-71.15317, -184.10442)
+rotation = 2.4480407
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0024" type="Node2D" parent="GrassPlacer" unique_id=1238741260 instance=ExtResource("5_u1fpq")]
-position = Vector2(-20.37143, -104.46329)
-rotation = 2.710454
+[node name="GeneratedGrass_0024" type="Node2D" parent="GrassPlacer" unique_id=1280983345 instance=ExtResource("5_u1fpq")]
+position = Vector2(-73.06802, -186.66278)
+rotation = 2.5283854
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0025" type="Node2D" parent="GrassPlacer" unique_id=1691178856 instance=ExtResource("5_u1fpq")]
-position = Vector2(-22.034058, -108.07764)
-rotation = 2.710454
+[node name="GeneratedGrass_0025" type="Node2D" parent="GrassPlacer" unique_id=999911929 instance=ExtResource("5_u1fpq")]
+position = Vector2(-76.50687, -191.54956)
+rotation = 2.5283854
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0026" type="Node2D" parent="GrassPlacer" unique_id=1675668060 instance=ExtResource("5_u1fpq")]
-position = Vector2(-23.696655, -111.692)
-rotation = 2.710454
+[node name="GeneratedGrass_0026" type="Node2D" parent="GrassPlacer" unique_id=177044293 instance=ExtResource("5_u1fpq")]
+position = Vector2(-79.94568, -196.43631)
+rotation = 2.5283854
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0027" type="Node2D" parent="GrassPlacer" unique_id=326892557 instance=ExtResource("5_u1fpq")]
-position = Vector2(-25.359253, -115.30635)
-rotation = 2.710454
+[node name="GeneratedGrass_0027" type="Node2D" parent="GrassPlacer" unique_id=537206055 instance=ExtResource("5_u1fpq")]
+position = Vector2(-83.38452, -201.32306)
+rotation = 2.5283854
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0028" type="Node2D" parent="GrassPlacer" unique_id=1758572890 instance=ExtResource("5_u1fpq")]
-position = Vector2(-27.02185, -118.9207)
-rotation = 2.710454
+[node name="GeneratedGrass_0028" type="Node2D" parent="GrassPlacer" unique_id=1395606967 instance=ExtResource("5_u1fpq")]
+position = Vector2(-86.82333, -206.20981)
+rotation = 2.5283854
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0029" type="Node2D" parent="GrassPlacer" unique_id=260671232 instance=ExtResource("5_u1fpq")]
-position = Vector2(-31.191101, -126.07002)
-rotation = 2.500022
+[node name="GeneratedGrass_0029" type="Node2D" parent="GrassPlacer" unique_id=1331868793 instance=ExtResource("5_u1fpq")]
+position = Vector2(-96.89911, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0030" type="Node2D" parent="GrassPlacer" unique_id=548085929 instance=ExtResource("5_u1fpq")]
-position = Vector2(-33.579468, -129.26735)
-rotation = 2.500022
+[node name="GeneratedGrass_0030" type="Node2D" parent="GrassPlacer" unique_id=1225534672 instance=ExtResource("5_u1fpq")]
+position = Vector2(-101.23105, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0031" type="Node2D" parent="GrassPlacer" unique_id=1339855590 instance=ExtResource("5_u1fpq")]
-position = Vector2(-35.967834, -132.46466)
-rotation = 2.500022
+[node name="GeneratedGrass_0031" type="Node2D" parent="GrassPlacer" unique_id=252832682 instance=ExtResource("5_u1fpq")]
+position = Vector2(-105.56296, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0032" type="Node2D" parent="GrassPlacer" unique_id=247251448 instance=ExtResource("5_u1fpq")]
-position = Vector2(-38.3562, -135.66199)
-rotation = 2.500022
+[node name="GeneratedGrass_0032" type="Node2D" parent="GrassPlacer" unique_id=232703772 instance=ExtResource("5_u1fpq")]
+position = Vector2(-109.8949, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0033" type="Node2D" parent="GrassPlacer" unique_id=1471560824 instance=ExtResource("5_u1fpq")]
-position = Vector2(-40.744537, -138.85928)
-rotation = 2.500022
+[node name="GeneratedGrass_0033" type="Node2D" parent="GrassPlacer" unique_id=245067108 instance=ExtResource("5_u1fpq")]
+position = Vector2(-114.22684, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0034" type="Node2D" parent="GrassPlacer" unique_id=445681455 instance=ExtResource("5_u1fpq")]
-position = Vector2(-43.132904, -142.05661)
-rotation = 2.500022
+[node name="GeneratedGrass_0034" type="Node2D" parent="GrassPlacer" unique_id=1407292662 instance=ExtResource("5_u1fpq")]
+position = Vector2(-118.55875, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0035" type="Node2D" parent="GrassPlacer" unique_id=1542253889 instance=ExtResource("5_u1fpq")]
-position = Vector2(-45.52124, -145.25392)
-rotation = 2.500022
+[node name="GeneratedGrass_0035" type="Node2D" parent="GrassPlacer" unique_id=423242821 instance=ExtResource("5_u1fpq")]
+position = Vector2(-120.89911, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0036" type="Node2D" parent="GrassPlacer" unique_id=1431123615 instance=ExtResource("5_u1fpq")]
-position = Vector2(-47.909607, -148.45123)
-rotation = 2.500022
+[node name="GeneratedGrass_0036" type="Node2D" parent="GrassPlacer" unique_id=471707167 instance=ExtResource("5_u1fpq")]
+position = Vector2(-126.89862, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0037" type="Node2D" parent="GrassPlacer" unique_id=555500548 instance=ExtResource("5_u1fpq")]
-position = Vector2(-50.297974, -151.64854)
-rotation = 2.500022
+[node name="GeneratedGrass_0037" type="Node2D" parent="GrassPlacer" unique_id=1644436776 instance=ExtResource("5_u1fpq")]
+position = Vector2(-132.89813, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0038" type="Node2D" parent="GrassPlacer" unique_id=2004848610 instance=ExtResource("5_u1fpq")]
-position = Vector2(-52.68631, -154.84587)
-rotation = 2.500022
+[node name="GeneratedGrass_0038" type="Node2D" parent="GrassPlacer" unique_id=13759352 instance=ExtResource("5_u1fpq")]
+position = Vector2(-138.89764, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0039" type="Node2D" parent="GrassPlacer" unique_id=581729269 instance=ExtResource("5_u1fpq")]
-position = Vector2(-55.074677, -158.0432)
-rotation = 2.500022
+[node name="GeneratedGrass_0039" type="Node2D" parent="GrassPlacer" unique_id=195087873 instance=ExtResource("5_u1fpq")]
+position = Vector2(-144.89716, -212.0017)
+rotation = 1.5707964
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0040" type="Node2D" parent="GrassPlacer" unique_id=169721809 instance=ExtResource("5_u1fpq")]
-position = Vector2(-57.463043, -161.2405)
-rotation = 2.500022
+[node name="GeneratedGrass_0040" type="Node2D" parent="GrassPlacer" unique_id=751858739 instance=ExtResource("5_u1fpq")]
+position = Vector2(-150.89664, -211.61296)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0041" type="Node2D" parent="GrassPlacer" unique_id=1945577954 instance=ExtResource("5_u1fpq")]
-position = Vector2(-59.85138, -164.4378)
-rotation = 2.500022
+[node name="GeneratedGrass_0041" type="Node2D" parent="GrassPlacer" unique_id=631557068 instance=ExtResource("5_u1fpq")]
+position = Vector2(-156.89615, -211.2241)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0042" type="Node2D" parent="GrassPlacer" unique_id=834076645 instance=ExtResource("5_u1fpq")]
-position = Vector2(-62.239746, -167.63512)
-rotation = 2.500022
+[node name="GeneratedGrass_0042" type="Node2D" parent="GrassPlacer" unique_id=683890598 instance=ExtResource("5_u1fpq")]
+position = Vector2(-162.89566, -210.83525)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0043" type="Node2D" parent="GrassPlacer" unique_id=1256521052 instance=ExtResource("5_u1fpq")]
-position = Vector2(-64.62811, -170.83244)
-rotation = 2.500022
+[node name="GeneratedGrass_0043" type="Node2D" parent="GrassPlacer" unique_id=69649015 instance=ExtResource("5_u1fpq")]
+position = Vector2(-168.89517, -210.4464)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0044" type="Node2D" parent="GrassPlacer" unique_id=1416553208 instance=ExtResource("5_u1fpq")]
-position = Vector2(-67.01645, -174.02974)
-rotation = 2.500022
+[node name="GeneratedGrass_0044" type="Node2D" parent="GrassPlacer" unique_id=2046051188 instance=ExtResource("5_u1fpq")]
+position = Vector2(-174.89467, -210.05754)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0045" type="Node2D" parent="GrassPlacer" unique_id=2074765931 instance=ExtResource("5_u1fpq")]
-position = Vector2(-69.404785, -177.22707)
-rotation = 2.500022
+[node name="GeneratedGrass_0045" type="Node2D" parent="GrassPlacer" unique_id=1546328171 instance=ExtResource("5_u1fpq")]
+position = Vector2(-180.89418, -209.66869)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0046" type="Node2D" parent="GrassPlacer" unique_id=1470541585 instance=ExtResource("5_u1fpq")]
-position = Vector2(-71.79315, -180.4244)
-rotation = 2.500022
+[node name="GeneratedGrass_0046" type="Node2D" parent="GrassPlacer" unique_id=1261153290 instance=ExtResource("5_u1fpq")]
+position = Vector2(-186.89368, -209.27983)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0047" type="Node2D" parent="GrassPlacer" unique_id=1569394431 instance=ExtResource("5_u1fpq")]
-position = Vector2(-74.18152, -183.62169)
-rotation = 2.500022
+[node name="GeneratedGrass_0047" type="Node2D" parent="GrassPlacer" unique_id=1533983145 instance=ExtResource("5_u1fpq")]
+position = Vector2(-192.89319, -208.89096)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0048" type="Node2D" parent="GrassPlacer" unique_id=766728302 instance=ExtResource("5_u1fpq")]
-position = Vector2(-76.569885, -186.81902)
-rotation = 2.500022
+[node name="GeneratedGrass_0048" type="Node2D" parent="GrassPlacer" unique_id=8362546 instance=ExtResource("5_u1fpq")]
+position = Vector2(-198.8927, -208.5021)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0049" type="Node2D" parent="GrassPlacer" unique_id=388461868 instance=ExtResource("5_u1fpq")]
-position = Vector2(-78.95822, -190.01633)
-rotation = 2.500022
+[node name="GeneratedGrass_0049" type="Node2D" parent="GrassPlacer" unique_id=1486786664 instance=ExtResource("5_u1fpq")]
+position = Vector2(-198.89911, -208.5017)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0050" type="Node2D" parent="GrassPlacer" unique_id=175436985 instance=ExtResource("5_u1fpq")]
-position = Vector2(-81.34659, -193.21364)
-rotation = 2.500022
+[node name="GeneratedGrass_0050" type="Node2D" parent="GrassPlacer" unique_id=1251079983 instance=ExtResource("5_u1fpq")]
+position = Vector2(-204.89426, -208.11311)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0051" type="Node2D" parent="GrassPlacer" unique_id=520465883 instance=ExtResource("5_u1fpq")]
-position = Vector2(-83.734955, -196.41096)
-rotation = 2.500022
+[node name="GeneratedGrass_0051" type="Node2D" parent="GrassPlacer" unique_id=491014406 instance=ExtResource("5_u1fpq")]
+position = Vector2(-210.88939, -207.72455)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0052" type="Node2D" parent="GrassPlacer" unique_id=752628764 instance=ExtResource("5_u1fpq")]
-position = Vector2(-86.12329, -199.60826)
-rotation = 2.500022
+[node name="GeneratedGrass_0052" type="Node2D" parent="GrassPlacer" unique_id=1665167531 instance=ExtResource("5_u1fpq")]
+position = Vector2(-216.88454, -207.33597)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0053" type="Node2D" parent="GrassPlacer" unique_id=312454993 instance=ExtResource("5_u1fpq")]
-position = Vector2(-87.74634, -201.78104)
-rotation = 2.500022
+[node name="GeneratedGrass_0053" type="Node2D" parent="GrassPlacer" unique_id=1987367478 instance=ExtResource("5_u1fpq")]
+position = Vector2(-222.87967, -206.9474)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0054" type="Node2D" parent="GrassPlacer" unique_id=2079685158 instance=ExtResource("5_u1fpq")]
-position = Vector2(-98.24698, -205.70895)
-rotation = 1.5309768
+[node name="GeneratedGrass_0054" type="Node2D" parent="GrassPlacer" unique_id=1499900181 instance=ExtResource("5_u1fpq")]
+position = Vector2(-228.87482, -206.55882)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0055" type="Node2D" parent="GrassPlacer" unique_id=1722887059 instance=ExtResource("5_u1fpq")]
-position = Vector2(-101.59485, -205.57558)
-rotation = 1.5309768
+[node name="GeneratedGrass_0055" type="Node2D" parent="GrassPlacer" unique_id=79304057 instance=ExtResource("5_u1fpq")]
+position = Vector2(-234.86996, -206.17024)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0056" type="Node2D" parent="GrassPlacer" unique_id=241590685 instance=ExtResource("5_u1fpq")]
-position = Vector2(-104.94275, -205.44218)
-rotation = 1.5309768
+[node name="GeneratedGrass_0056" type="Node2D" parent="GrassPlacer" unique_id=1374121832 instance=ExtResource("5_u1fpq")]
+position = Vector2(-240.8651, -205.78168)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0057" type="Node2D" parent="GrassPlacer" unique_id=1583078328 instance=ExtResource("5_u1fpq")]
-position = Vector2(-108.29062, -205.3088)
-rotation = 1.5309768
+[node name="GeneratedGrass_0057" type="Node2D" parent="GrassPlacer" unique_id=1627677039 instance=ExtResource("5_u1fpq")]
+position = Vector2(-246.86023, -205.3931)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0058" type="Node2D" parent="GrassPlacer" unique_id=911124916 instance=ExtResource("5_u1fpq")]
-position = Vector2(-111.63849, -205.17543)
-rotation = 1.5309768
+[node name="GeneratedGrass_0058" type="Node2D" parent="GrassPlacer" unique_id=1241577124 instance=ExtResource("5_u1fpq")]
+position = Vector2(-252.85538, -205.00453)
+rotation = 1.506072
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0059" type="Node2D" parent="GrassPlacer" unique_id=499221123 instance=ExtResource("5_u1fpq")]
-position = Vector2(-114.98639, -205.04204)
-rotation = 1.5309768
+[node name="GeneratedGrass_0059" type="Node2D" parent="GrassPlacer" unique_id=1871496307 instance=ExtResource("5_u1fpq")]
+position = Vector2(-258.85052, -204.5388)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0060" type="Node2D" parent="GrassPlacer" unique_id=240261448 instance=ExtResource("5_u1fpq")]
-position = Vector2(-118.33426, -204.90866)
-rotation = 1.5309768
+[node name="GeneratedGrass_0060" type="Node2D" parent="GrassPlacer" unique_id=1947813383 instance=ExtResource("5_u1fpq")]
+position = Vector2(-264.84567, -204.07253)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0061" type="Node2D" parent="GrassPlacer" unique_id=187875494 instance=ExtResource("5_u1fpq")]
-position = Vector2(-120.89911, -204.80647)
-rotation = 1.5309768
+[node name="GeneratedGrass_0061" type="Node2D" parent="GrassPlacer" unique_id=270217160 instance=ExtResource("5_u1fpq")]
+position = Vector2(-270.84082, -203.60623)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0062" type="Node2D" parent="GrassPlacer" unique_id=1620191999 instance=ExtResource("5_u1fpq")]
-position = Vector2(-124.89877, -204.64713)
-rotation = 1.5309768
+[node name="GeneratedGrass_0062" type="Node2D" parent="GrassPlacer" unique_id=825481301 instance=ExtResource("5_u1fpq")]
+position = Vector2(-276.83594, -203.13994)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0063" type="Node2D" parent="GrassPlacer" unique_id=1589649638 instance=ExtResource("5_u1fpq")]
-position = Vector2(-128.89844, -204.48778)
-rotation = 1.5309768
+[node name="GeneratedGrass_0063" type="Node2D" parent="GrassPlacer" unique_id=1992142557 instance=ExtResource("5_u1fpq")]
+position = Vector2(-282.8311, -202.67365)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0064" type="Node2D" parent="GrassPlacer" unique_id=715998454 instance=ExtResource("5_u1fpq")]
-position = Vector2(-132.89813, -204.32843)
-rotation = 1.5309768
+[node name="GeneratedGrass_0064" type="Node2D" parent="GrassPlacer" unique_id=1282371575 instance=ExtResource("5_u1fpq")]
+position = Vector2(-288.82623, -202.20737)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0065" type="Node2D" parent="GrassPlacer" unique_id=1246585268 instance=ExtResource("5_u1fpq")]
-position = Vector2(-136.8978, -204.16908)
-rotation = 1.5309768
+[node name="GeneratedGrass_0065" type="Node2D" parent="GrassPlacer" unique_id=799708309 instance=ExtResource("5_u1fpq")]
+position = Vector2(-294.82135, -201.74107)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0066" type="Node2D" parent="GrassPlacer" unique_id=1393395589 instance=ExtResource("5_u1fpq")]
-position = Vector2(-140.89746, -204.00972)
-rotation = 1.5309768
+[node name="GeneratedGrass_0066" type="Node2D" parent="GrassPlacer" unique_id=128510130 instance=ExtResource("5_u1fpq")]
+position = Vector2(-300.81653, -201.27478)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0067" type="Node2D" parent="GrassPlacer" unique_id=1402789168 instance=ExtResource("5_u1fpq")]
-position = Vector2(-144.89716, -203.85037)
-rotation = 1.5309768
+[node name="GeneratedGrass_0067" type="Node2D" parent="GrassPlacer" unique_id=1556220567 instance=ExtResource("5_u1fpq")]
+position = Vector2(-306.81165, -200.8085)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0068" type="Node2D" parent="GrassPlacer" unique_id=1175265389 instance=ExtResource("5_u1fpq")]
-position = Vector2(-148.89679, -203.69102)
-rotation = 1.5309768
+[node name="GeneratedGrass_0068" type="Node2D" parent="GrassPlacer" unique_id=1007206206 instance=ExtResource("5_u1fpq")]
+position = Vector2(-312.8068, -200.34221)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0069" type="Node2D" parent="GrassPlacer" unique_id=1724482561 instance=ExtResource("5_u1fpq")]
-position = Vector2(-152.89648, -203.53168)
-rotation = 1.5309768
+[node name="GeneratedGrass_0069" type="Node2D" parent="GrassPlacer" unique_id=902867672 instance=ExtResource("5_u1fpq")]
+position = Vector2(-318.80194, -199.87592)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0070" type="Node2D" parent="GrassPlacer" unique_id=540385264 instance=ExtResource("5_u1fpq")]
-position = Vector2(-156.89615, -203.37233)
-rotation = 1.5309768
+[node name="GeneratedGrass_0070" type="Node2D" parent="GrassPlacer" unique_id=1502552047 instance=ExtResource("5_u1fpq")]
+position = Vector2(-324.79706, -199.40964)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0071" type="Node2D" parent="GrassPlacer" unique_id=1092175458 instance=ExtResource("5_u1fpq")]
-position = Vector2(-160.89581, -203.21298)
-rotation = 1.5309768
+[node name="GeneratedGrass_0071" type="Node2D" parent="GrassPlacer" unique_id=1562468852 instance=ExtResource("5_u1fpq")]
+position = Vector2(-330.79224, -198.94334)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0072" type="Node2D" parent="GrassPlacer" unique_id=1166046043 instance=ExtResource("5_u1fpq")]
-position = Vector2(-164.89551, -203.05363)
-rotation = 1.5309768
+[node name="GeneratedGrass_0072" type="Node2D" parent="GrassPlacer" unique_id=443856358 instance=ExtResource("5_u1fpq")]
+position = Vector2(-336.78735, -198.47705)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0073" type="Node2D" parent="GrassPlacer" unique_id=304494170 instance=ExtResource("5_u1fpq")]
-position = Vector2(-168.89517, -202.89429)
-rotation = 1.5309768
+[node name="GeneratedGrass_0073" type="Node2D" parent="GrassPlacer" unique_id=1057085906 instance=ExtResource("5_u1fpq")]
+position = Vector2(-342.7825, -198.01076)
+rotation = 1.4931748
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0074" type="Node2D" parent="GrassPlacer" unique_id=1198991537 instance=ExtResource("5_u1fpq")]
-position = Vector2(-172.89484, -202.73494)
-rotation = 1.5309768
+[node name="GeneratedGrass_0074" type="Node2D" parent="GrassPlacer" unique_id=2118449532 instance=ExtResource("5_u1fpq")]
+position = Vector2(-343.26663, -198.18546)
+rotation = 2.0344439
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0075" type="Node2D" parent="GrassPlacer" unique_id=960067519 instance=ExtResource("5_u1fpq")]
-position = Vector2(-176.8945, -202.57558)
-rotation = 1.5309768
+[node name="GeneratedGrass_0075" type="Node2D" parent="GrassPlacer" unique_id=1225782750 instance=ExtResource("5_u1fpq")]
+position = Vector2(-348.51474, -200.80951)
+rotation = 2.0344439
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0076" type="Node2D" parent="GrassPlacer" unique_id=496733625 instance=ExtResource("5_u1fpq")]
-position = Vector2(-180.89418, -202.41623)
-rotation = 1.5309768
+[node name="GeneratedGrass_0076" type="Node2D" parent="GrassPlacer" unique_id=1662951054 instance=ExtResource("5_u1fpq")]
+position = Vector2(-353.76288, -203.43358)
+rotation = 2.0344439
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0077" type="Node2D" parent="GrassPlacer" unique_id=1313161177 instance=ExtResource("5_u1fpq")]
-position = Vector2(-184.89386, -202.25688)
-rotation = 1.5309768
+[node name="GeneratedGrass_0077" type="Node2D" parent="GrassPlacer" unique_id=2080221947 instance=ExtResource("5_u1fpq")]
+position = Vector2(-359.01096, -206.05762)
+rotation = 2.0344439
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0078" type="Node2D" parent="GrassPlacer" unique_id=2060381099 instance=ExtResource("5_u1fpq")]
-position = Vector2(-188.89352, -202.09753)
-rotation = 1.5309768
+[node name="GeneratedGrass_0078" type="Node2D" parent="GrassPlacer" unique_id=1453986241 instance=ExtResource("5_u1fpq")]
+position = Vector2(-364.25906, -208.68167)
+rotation = 2.0344439
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0079" type="Node2D" parent="GrassPlacer" unique_id=1476942773 instance=ExtResource("5_u1fpq")]
-position = Vector2(-192.89319, -201.93819)
-rotation = 1.5309768
+[node name="GeneratedGrass_0079" type="Node2D" parent="GrassPlacer" unique_id=1005664015 instance=ExtResource("5_u1fpq")]
+position = Vector2(-365.37955, -209.24191)
+rotation = 2.0344439
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0080" type="Node2D" parent="GrassPlacer" unique_id=1523111726 instance=ExtResource("5_u1fpq")]
-position = Vector2(-196.89287, -201.77884)
-rotation = 1.5309768
+[node name="GeneratedGrass_0080" type="Node2D" parent="GrassPlacer" unique_id=597419024 instance=ExtResource("5_u1fpq")]
+position = Vector2(-366.35278, -209.72853)
+rotation = 2.0344439
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0081" type="Node2D" parent="GrassPlacer" unique_id=582508797 instance=ExtResource("5_u1fpq")]
-position = Vector2(-198.89911, -201.6989)
-rotation = 1.5309768
+[node name="GeneratedGrass_0081" type="Node2D" parent="GrassPlacer" unique_id=897609029 instance=ExtResource("5_u1fpq")]
+position = Vector2(-368.74847, -210.92638)
+rotation = 2.0344439
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0082" type="Node2D" parent="GrassPlacer" unique_id=964839158 instance=ExtResource("5_u1fpq")]
-position = Vector2(-202.88785, -201.54)
-rotation = 1.5309768
+[node name="GeneratedGrass_0082" type="Node2D" parent="GrassPlacer" unique_id=359291286 instance=ExtResource("5_u1fpq")]
+position = Vector2(-368.7277, -211.97296)
+rotation = -2.9669204
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0083" type="Node2D" parent="GrassPlacer" unique_id=18951696 instance=ExtResource("5_u1fpq")]
-position = Vector2(-206.87659, -201.38107)
-rotation = 1.5309768
+[node name="GeneratedGrass_0083" type="Node2D" parent="GrassPlacer" unique_id=1143493112 instance=ExtResource("5_u1fpq")]
+position = Vector2(-368.8285, -211.4018)
+rotation = -2.9669204
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0084" type="Node2D" parent="GrassPlacer" unique_id=1754202302 instance=ExtResource("5_u1fpq")]
-position = Vector2(-210.86533, -201.22217)
-rotation = 1.5309768
+[node name="GeneratedGrass_0084" type="Node2D" parent="GrassPlacer" unique_id=1635704193 instance=ExtResource("5_u1fpq")]
+position = Vector2(-367.8032, -217.21196)
+rotation = -2.9669204
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0085" type="Node2D" parent="GrassPlacer" unique_id=120648812 instance=ExtResource("5_u1fpq")]
-position = Vector2(-214.85408, -201.06325)
-rotation = 1.5309768
+[node name="GeneratedGrass_0085" type="Node2D" parent="GrassPlacer" unique_id=1194690289 instance=ExtResource("5_u1fpq")]
+position = Vector2(-366.77786, -223.02211)
+rotation = -2.9669204
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0086" type="Node2D" parent="GrassPlacer" unique_id=180688597 instance=ExtResource("5_u1fpq")]
-position = Vector2(-218.84282, -200.90434)
-rotation = 1.5309768
+[node name="GeneratedGrass_0086" type="Node2D" parent="GrassPlacer" unique_id=2053121419 instance=ExtResource("5_u1fpq")]
+position = Vector2(-365.75253, -228.83226)
+rotation = -2.9669204
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0087" type="Node2D" parent="GrassPlacer" unique_id=537052964 instance=ExtResource("5_u1fpq")]
-position = Vector2(-222.83156, -200.74542)
-rotation = 1.5309768
+[node name="GeneratedGrass_0087" type="Node2D" parent="GrassPlacer" unique_id=1547774188 instance=ExtResource("5_u1fpq")]
+position = Vector2(-364.7272, -234.64244)
+rotation = -2.9669204
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0088" type="Node2D" parent="GrassPlacer" unique_id=86101466 instance=ExtResource("5_u1fpq")]
-position = Vector2(-226.8203, -200.5865)
-rotation = 1.5309768
+[node name="GeneratedGrass_0088" type="Node2D" parent="GrassPlacer" unique_id=1084138252 instance=ExtResource("5_u1fpq")]
+position = Vector2(-363.7019, -240.45259)
+rotation = -2.9669204
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0089" type="Node2D" parent="GrassPlacer" unique_id=1885395727 instance=ExtResource("5_u1fpq")]
-position = Vector2(-230.80904, -200.4276)
-rotation = 1.5309768
+[node name="GeneratedGrass_0089" type="Node2D" parent="GrassPlacer" unique_id=1352663006 instance=ExtResource("5_u1fpq")]
+position = Vector2(-366.3879, -249.25658)
+rotation = 2.205823
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0090" type="Node2D" parent="GrassPlacer" unique_id=639304174 instance=ExtResource("5_u1fpq")]
-position = Vector2(-234.79778, -200.26868)
-rotation = 1.5309768
+[node name="GeneratedGrass_0090" type="Node2D" parent="GrassPlacer" unique_id=490687309 instance=ExtResource("5_u1fpq")]
+position = Vector2(-371.0957, -252.72551)
+rotation = 2.205823
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0091" type="Node2D" parent="GrassPlacer" unique_id=1087285372 instance=ExtResource("5_u1fpq")]
-position = Vector2(-238.78653, -200.10976)
-rotation = 1.5309768
+[node name="TerrainDarkRock3" parent="." unique_id=1678547381 instance=ExtResource("1_wow58")]
+position = Vector2(-708, 9)
+polygon = PackedVector2Array(-802, -14, -692, -245, -62, -78, 45.779785, -9.950745, -3, 203, -203, 145)
+
+[node name="TerrainDarkRock4" parent="." unique_id=1878835569 instance=ExtResource("1_wow58")]
+position = Vector2(-892, -588)
+polygon = PackedVector2Array(449, -413, 108.984985, -1.9989014, 272.985, 574.0011, -121.015015, 695.0011, -446.015, 108.0011, -28.015015, -754.9989)
+
+[node name="TerrainDarkRock5" parent="." unique_id=388564020 instance=ExtResource("1_wow58")]
+position = Vector2(371, -555)
+polygon = PackedVector2Array(-16, -9, 183.7865, -11.211548, 125, 115, 8, 94)
+
+[node name="TerrainDarkRock6" parent="." unique_id=1366751533 instance=ExtResource("1_wow58")]
+position = Vector2(-337, -1117)
+polygon = PackedVector2Array(-1091.4941, -47.969727, 844.50586, -6.9697266, 658.50586, 172.03027, -731.49414, 143.03027)
+
+[node name="TerrainDarkRock7" parent="." unique_id=1428535369 instance=ExtResource("1_wow58")]
+position = Vector2(440.18835, -935.9062)
+polygon = PackedVector2Array(-699.18835, -168.09381, 170.81165, -544.0938, 109.811646, 381.9062, -77.188354, 382.9062)
+
+[node name="GlassTerrain" parent="." unique_id=854778461 instance=ExtResource("7_lee2c")]
+position = Vector2(383.42654, -312.36707)
+polygon = PackedVector2Array(-2.4265442, -150.63293, 63.573456, -142.63293, 104.573456, 32.367065, -7.426544, 37.367065)
+shard_disappear_duration = 2.0
+
+[node name="TerrainDirt" parent="." unique_id=954711914 instance=ExtResource("8_qgigk")]
+position = Vector2(375.51987, -235.78995)
+polygon = PackedVector2Array(-95.51987, -15.2100525, -203.51987, -8.2100525, -293.51987, -1.2100525, -319.51987, -14.2100525, -313.51987, -48.210052, -277.51987, -63.210052, -64.51987, -67.21005, -7.519867, -42.210052, 41.480133, -10.2100525, 137.48013, 59.789948, 212.48013, 57.789948, 81.48013, 184.78995, 46.480133, 94.78995, -22.519867, 11.7899475, -41.519867, -15.2100525)
+
+[node name="TerrainRock3" parent="." unique_id=855074138 instance=ExtResource("2_sadf1")]
+position = Vector2(407, -263)
+polygon = PackedVector2Array(-34, -14, 0, -15, 125, -22, 232, -3, 236, 19, 200, 97, 100, 91, -19, 19)
+
+[node name="GrassPlacer2" parent="." unique_id=1170695336 instance=ExtResource("4_qgigk")]
+position = Vector2(-52.291275, -237.50328)
+points = PackedVector2Array(-61.708725, -20.49672, -52.708725, -24.49672, -48.649513, -12.913078, -21.89885, 2.6213684, 0.29127502, -14.496719, -3.708725, -42.49672, 3.291275, -44.49672)
+step = 5.0
+
+[node name="GeneratedGrass_0000" type="Node2D" parent="GrassPlacer2" unique_id=1089172356 instance=ExtResource("5_u1fpq")]
+position = Vector2(-61.708725, -29.425278)
+rotation = 1.5113426
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0001" type="Node2D" parent="GrassPlacer2" unique_id=1448228159 instance=ExtResource("5_u1fpq")]
+position = Vector2(-57.139664, -29.69725)
+rotation = 1.5113426
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0002" type="Node2D" parent="GrassPlacer2" unique_id=1867881264 instance=ExtResource("5_u1fpq")]
+position = Vector2(-48.285828, -27.452011)
+rotation = 2.5636907
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0003" type="Node2D" parent="GrassPlacer2" unique_id=114745312 instance=ExtResource("5_u1fpq")]
+position = Vector2(-45.640594, -23.39598)
+rotation = 2.5636907
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0004" type="Node2D" parent="GrassPlacer2" unique_id=47384944 instance=ExtResource("5_u1fpq")]
+position = Vector2(-42.995346, -19.33992)
+rotation = 2.5636907
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0005" type="Node2D" parent="GrassPlacer2" unique_id=177668213 instance=ExtResource("5_u1fpq")]
+position = Vector2(-41.792145, -17.495026)
+rotation = 2.5636907
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0006" type="Node2D" parent="GrassPlacer2" unique_id=735484768 instance=ExtResource("5_u1fpq")]
+position = Vector2(-39.339294, -13.733978)
+rotation = 2.5636907
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0007" type="Node2D" parent="GrassPlacer2" unique_id=1224113753 instance=ExtResource("5_u1fpq")]
+position = Vector2(-38.264427, -12.085846)
+rotation = 2.5636907
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0008" type="Node2D" parent="GrassPlacer2" unique_id=1013190469 instance=ExtResource("5_u1fpq")]
+position = Vector2(-37.026855, -12.16127)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0009" type="Node2D" parent="GrassPlacer2" unique_id=1657219179 instance=ExtResource("5_u1fpq")]
+position = Vector2(-35.41732, -12.678635)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0010" type="Node2D" parent="GrassPlacer2" unique_id=486215947 instance=ExtResource("5_u1fpq")]
+position = Vector2(-32.51938, -13.610107)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0011" type="Node2D" parent="GrassPlacer2" unique_id=854770624 instance=ExtResource("5_u1fpq")]
+position = Vector2(-29.621437, -14.54158)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0012" type="Node2D" parent="GrassPlacer2" unique_id=236959906 instance=ExtResource("5_u1fpq")]
+position = Vector2(-29.080063, -14.715607)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0013" type="Node2D" parent="GrassPlacer2" unique_id=1903269799 instance=ExtResource("5_u1fpq")]
+position = Vector2(-24.469933, -16.197433)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0014" type="Node2D" parent="GrassPlacer2" unique_id=498470738 instance=ExtResource("5_u1fpq")]
+position = Vector2(-19.859795, -17.67926)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0015" type="Node2D" parent="GrassPlacer2" unique_id=47600429 instance=ExtResource("5_u1fpq")]
+position = Vector2(-15.249664, -19.161087)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0016" type="Node2D" parent="GrassPlacer2" unique_id=498798079 instance=ExtResource("5_u1fpq")]
+position = Vector2(-10.639526, -20.64293)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0017" type="Node2D" parent="GrassPlacer2" unique_id=883876650 instance=ExtResource("5_u1fpq")]
+position = Vector2(-10.230095, -20.77452)
+rotation = 1.259798
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0018" type="Node2D" parent="GrassPlacer2" unique_id=1854488583 instance=ExtResource("5_u1fpq")]
+position = Vector2(-10.082222, -21.428085)
+rotation = 0.0137972925
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0019" type="Node2D" parent="GrassPlacer2" unique_id=742575136 instance=ExtResource("5_u1fpq")]
+position = Vector2(-10.083031, -21.36937)
+rotation = 0.0137972925
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0020" type="Node2D" parent="GrassPlacer2" unique_id=1223517217 instance=ExtResource("5_u1fpq")]
+position = Vector2(-10.041267, -24.396225)
+rotation = 0.0137972925
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0021" type="Node2D" parent="GrassPlacer2" unique_id=1656534878 instance=ExtResource("5_u1fpq")]
+position = Vector2(-9.972969, -29.345963)
+rotation = 0.0137972925
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0022" type="Node2D" parent="GrassPlacer2" unique_id=363103789 instance=ExtResource("5_u1fpq")]
+position = Vector2(-9.904671, -34.2957)
+rotation = 0.0137972925
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0023" type="Node2D" parent="GrassPlacer2" unique_id=891456217 instance=ExtResource("5_u1fpq")]
+position = Vector2(-9.836376, -39.24547)
+rotation = 0.0137972925
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0024" type="Node2D" parent="GrassPlacer2" unique_id=318484119 instance=ExtResource("5_u1fpq")]
+position = Vector2(-5.802929, -47.552567)
+rotation = 1.2220763
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0025" type="Node2D" parent="GrassPlacer2" unique_id=1521959901 instance=ExtResource("5_u1fpq")]
+position = Vector2(-1.1300735, -49.25151)
+rotation = 1.2220763
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="TerrainDirt2" parent="." unique_id=1230330682 instance=ExtResource("8_qgigk")]
+position = Vector2(-89, -271)
+polygon = PackedVector2Array(-16.381897, -1.3226318, -8, -15, 27, -15, 26.618103, 12.677368, -1.381897, 21.677368)
+
+[node name="GrassPlacer3" parent="." unique_id=670317738 instance=ExtResource("4_qgigk")]
+position = Vector2(-203.57495, -224.36948)
+points = PackedVector2Array(-27.425049, -21.630524, 9.574951, 2.3694763, 31.574951, -30.630524, 50.57495, -30.630524)
+
+[node name="GeneratedGrass_0000" type="Node2D" parent="GrassPlacer3" unique_id=145312735 instance=ExtResource("5_u1fpq")]
+position = Vector2(-10.641205, -32.845123)
+rotation = 2.6011732
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0001" type="Node2D" parent="GrassPlacer3" unique_id=49103811 instance=ExtResource("5_u1fpq")]
+position = Vector2(-7.3290405, -27.324875)
+rotation = 2.6011732
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0002" type="Node2D" parent="GrassPlacer3" unique_id=952078710 instance=ExtResource("5_u1fpq")]
+position = Vector2(-5.468109, -24.223328)
+rotation = 2.6011732
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0003" type="Node2D" parent="GrassPlacer3" unique_id=1545939609 instance=ExtResource("5_u1fpq")]
+position = Vector2(-4.5228577, -22.959183)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0004" type="Node2D" parent="GrassPlacer3" unique_id=1074360873 instance=ExtResource("5_u1fpq")]
+position = Vector2(-3.9341278, -23.008255)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0005" type="Node2D" parent="GrassPlacer3" unique_id=450146751 instance=ExtResource("5_u1fpq")]
+position = Vector2(1.9385986, -23.49765)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0006" type="Node2D" parent="GrassPlacer3" unique_id=415865936 instance=ExtResource("5_u1fpq")]
+position = Vector2(7.811325, -23.987045)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0007" type="Node2D" parent="GrassPlacer3" unique_id=765235826 instance=ExtResource("5_u1fpq")]
+position = Vector2(9.574951, -24.134003)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0008" type="Node2D" parent="GrassPlacer3" unique_id=1811459081 instance=ExtResource("5_u1fpq")]
+position = Vector2(13.457855, -24.45758)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0009" type="Node2D" parent="GrassPlacer3" unique_id=62795121 instance=ExtResource("5_u1fpq")]
+position = Vector2(17.34076, -24.781158)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0010" type="Node2D" parent="GrassPlacer3" unique_id=39100813 instance=ExtResource("5_u1fpq")]
+position = Vector2(19.266754, -24.94165)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0011" type="Node2D" parent="GrassPlacer3" unique_id=1036562050 instance=ExtResource("5_u1fpq")]
+position = Vector2(19.118118, -24.929276)
+rotation = 1.487655
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0012" type="Node2D" parent="GrassPlacer3" unique_id=2125354095 instance=ExtResource("5_u1fpq")]
+position = Vector2(21.575974, -29.82306)
+rotation = 0.43662715
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0013" type="Node2D" parent="GrassPlacer3" unique_id=606916425 instance=ExtResource("5_u1fpq")]
+position = Vector2(31.574951, -39.10672)
+rotation = 1.5113426
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0092" type="Node2D" parent="GrassPlacer" unique_id=285738911 instance=ExtResource("5_u1fpq")]
-position = Vector2(-242.77527, -199.95085)
-rotation = 1.5309768
+[node name="GeneratedGrass_0014" type="Node2D" parent="GrassPlacer3" unique_id=1086896954 instance=ExtResource("5_u1fpq")]
+position = Vector2(38.57495, -39.523376)
+rotation = 1.5113426
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0093" type="Node2D" parent="GrassPlacer" unique_id=508392782 instance=ExtResource("5_u1fpq")]
-position = Vector2(-246.764, -199.79193)
-rotation = 1.5309768
+[node name="GeneratedGrass_0015" type="Node2D" parent="GrassPlacer3" unique_id=261756288 instance=ExtResource("5_u1fpq")]
+position = Vector2(45.57495, -39.940033)
+rotation = 1.5113426
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0094" type="Node2D" parent="GrassPlacer" unique_id=815859450 instance=ExtResource("5_u1fpq")]
-position = Vector2(-250.75275, -199.63303)
-rotation = 1.5309768
+[node name="TerrainDirt3" parent="." unique_id=1147585593 instance=ExtResource("8_qgigk")]
+position = Vector2(-188, -262)
+polygon = PackedVector2Array(-26.275696, 4.686157, -20.275696, -10.313843, -3.2756958, -11.313843, 10.724304, -2.3138428, 3.7243042, 12.686157, -20.275696, 14.686157)
+
+[node name="TerrainDirt4" parent="." unique_id=354569467 instance=ExtResource("8_qgigk")]
+position = Vector2(-154.19077, -284.6663)
+polygon = PackedVector2Array(-41.809235, 11.66629, -12.809235, 3.6662903, 36.190765, -1.3337097, 62.190765, -1.3337097, 58.190765, 16.66629, -25.809235, 21.66629)
+
+[node name="GrassPlacer4" parent="." unique_id=1675215580 instance=ExtResource("4_qgigk")]
+position = Vector2(27.587662, -333.57166)
+points = PackedVector2Array(-100.58766, -7.4283447, 331.41235, 5.5716553)
+
+[node name="GeneratedGrass_0000" type="Node2D" parent="GrassPlacer4" unique_id=1091793559 instance=ExtResource("5_u1fpq")]
+position = Vector2(-100.58766, 18.450714)
+rotation = -1.6233793
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0001" type="Node2D" parent="GrassPlacer4" unique_id=867183429 instance=ExtResource("5_u1fpq")]
+position = Vector2(-93.59083, 18.082458)
+rotation = -1.6233793
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0002" type="Node2D" parent="GrassPlacer4" unique_id=871778381 instance=ExtResource("5_u1fpq")]
+position = Vector2(-86.593994, 17.714203)
+rotation = -1.6233793
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0003" type="Node2D" parent="GrassPlacer4" unique_id=1681343404 instance=ExtResource("5_u1fpq")]
+position = Vector2(-79.59717, 17.345947)
+rotation = -1.6233793
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0004" type="Node2D" parent="GrassPlacer4" unique_id=899506927 instance=ExtResource("5_u1fpq")]
+position = Vector2(-72.60033, 16.977692)
+rotation = -1.6233793
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0005" type="Node2D" parent="GrassPlacer4" unique_id=1223339832 instance=ExtResource("5_u1fpq")]
+position = Vector2(-65.6035, 16.609436)
+rotation = -1.6233793
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0006" type="Node2D" parent="GrassPlacer4" unique_id=2033661296 instance=ExtResource("5_u1fpq")]
+position = Vector2(-58.606667, 16.24121)
+rotation = -1.6233793
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0007" type="Node2D" parent="GrassPlacer4" unique_id=2098425763 instance=ExtResource("5_u1fpq")]
+position = Vector2(-51.609833, 15.972046)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0008" type="Node2D" parent="GrassPlacer4" unique_id=2054318353 instance=ExtResource("5_u1fpq")]
+position = Vector2(-44.613, 16.169159)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0009" type="Node2D" parent="GrassPlacer4" unique_id=2062642548 instance=ExtResource("5_u1fpq")]
+position = Vector2(-37.616165, 16.366241)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0010" type="Node2D" parent="GrassPlacer4" unique_id=899241570 instance=ExtResource("5_u1fpq")]
+position = Vector2(-30.619331, 16.563324)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0011" type="Node2D" parent="GrassPlacer4" unique_id=1144477932 instance=ExtResource("5_u1fpq")]
+position = Vector2(-23.622498, 16.760437)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0012" type="Node2D" parent="GrassPlacer4" unique_id=314860998 instance=ExtResource("5_u1fpq")]
+position = Vector2(-16.625671, 16.95752)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0013" type="Node2D" parent="GrassPlacer4" unique_id=1072244653 instance=ExtResource("5_u1fpq")]
+position = Vector2(-9.628838, 17.154602)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0014" type="Node2D" parent="GrassPlacer4" unique_id=497960549 instance=ExtResource("5_u1fpq")]
+position = Vector2(-2.6320057, 17.351715)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0015" type="Node2D" parent="GrassPlacer4" unique_id=775849416 instance=ExtResource("5_u1fpq")]
+position = Vector2(4.364828, 17.548798)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0016" type="Node2D" parent="GrassPlacer4" unique_id=1941445772 instance=ExtResource("5_u1fpq")]
+position = Vector2(11.361664, 17.74591)
+rotation = -1.5426347
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0017" type="Node2D" parent="GrassPlacer4" unique_id=1874864127 instance=ExtResource("5_u1fpq")]
+position = Vector2(18.358498, 17.971924)
+rotation = -1.3960791
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0018" type="Node2D" parent="GrassPlacer4" unique_id=1118186197 instance=ExtResource("5_u1fpq")]
+position = Vector2(20.965248, 18.432037)
+rotation = -1.3960791
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0019" type="Node2D" parent="GrassPlacer4" unique_id=932960180 instance=ExtResource("5_u1fpq")]
+position = Vector2(27.765202, 19.632355)
+rotation = -1.3960791
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0020" type="Node2D" parent="GrassPlacer4" unique_id=1939905643 instance=ExtResource("5_u1fpq")]
+position = Vector2(34.565166, 20.832672)
+rotation = -1.3960791
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0021" type="Node2D" parent="GrassPlacer4" unique_id=1745771265 instance=ExtResource("5_u1fpq")]
+position = Vector2(41.365112, 22.03299)
+rotation = -1.3960791
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0022" type="Node2D" parent="GrassPlacer4" unique_id=329421275 instance=ExtResource("5_u1fpq")]
+position = Vector2(48.165085, 23.233276)
+rotation = -1.3960791
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0023" type="Node2D" parent="GrassPlacer4" unique_id=978260969 instance=ExtResource("5_u1fpq")]
+position = Vector2(54.965034, 24.433594)
+rotation = -1.3960791
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0024" type="Node2D" parent="GrassPlacer4" unique_id=2018853241 instance=ExtResource("5_u1fpq")]
+position = Vector2(61.750916, 25.70465)
+rotation = -1.1964628
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0025" type="Node2D" parent="GrassPlacer4" unique_id=1225609014 instance=ExtResource("5_u1fpq")]
+position = Vector2(62.644028, 26.055542)
+rotation = -1.1964628
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0026" type="Node2D" parent="GrassPlacer4" unique_id=1964271865 instance=ExtResource("5_u1fpq")]
+position = Vector2(68.73663, 28.449066)
+rotation = -1.1964628
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0027" type="Node2D" parent="GrassPlacer4" unique_id=648311366 instance=ExtResource("5_u1fpq")]
+position = Vector2(74.82926, 30.84259)
+rotation = -1.1964628
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0028" type="Node2D" parent="GrassPlacer4" unique_id=1223570526 instance=ExtResource("5_u1fpq")]
+position = Vector2(95.323654, 34.10382)
+rotation = -1.5895735
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0029" type="Node2D" parent="GrassPlacer4" unique_id=1252537111 instance=ExtResource("5_u1fpq")]
+position = Vector2(102.320496, 33.972443)
+rotation = -1.5895735
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0030" type="Node2D" parent="GrassPlacer4" unique_id=1048846429 instance=ExtResource("5_u1fpq")]
+position = Vector2(109.31732, 33.841034)
+rotation = -1.5895735
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0031" type="Node2D" parent="GrassPlacer4" unique_id=1866352784 instance=ExtResource("5_u1fpq")]
+position = Vector2(116.31415, 33.709656)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0095" type="Node2D" parent="GrassPlacer" unique_id=1800024304 instance=ExtResource("5_u1fpq")]
-position = Vector2(-254.74149, -199.4741)
-rotation = 1.5309768
+[node name="GeneratedGrass_0032" type="Node2D" parent="GrassPlacer4" unique_id=84015318 instance=ExtResource("5_u1fpq")]
+position = Vector2(123.31099, 33.578247)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0096" type="Node2D" parent="GrassPlacer" unique_id=2083740879 instance=ExtResource("5_u1fpq")]
-position = Vector2(-258.73022, -199.3152)
-rotation = 1.5309768
+[node name="GeneratedGrass_0033" type="Node2D" parent="GrassPlacer4" unique_id=345122983 instance=ExtResource("5_u1fpq")]
+position = Vector2(130.30782, 33.44684)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0097" type="Node2D" parent="GrassPlacer" unique_id=474417081 instance=ExtResource("5_u1fpq")]
-position = Vector2(-262.71896, -199.15628)
-rotation = 1.5309768
+[node name="GeneratedGrass_0034" type="Node2D" parent="GrassPlacer4" unique_id=287053182 instance=ExtResource("5_u1fpq")]
+position = Vector2(137.30466, 33.31546)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0098" type="Node2D" parent="GrassPlacer" unique_id=1482677154 instance=ExtResource("5_u1fpq")]
-position = Vector2(-266.7077, -198.99736)
-rotation = 1.5309768
+[node name="GeneratedGrass_0035" type="Node2D" parent="GrassPlacer4" unique_id=1872927496 instance=ExtResource("5_u1fpq")]
+position = Vector2(144.30148, 33.184082)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0099" type="Node2D" parent="GrassPlacer" unique_id=1330562880 instance=ExtResource("5_u1fpq")]
-position = Vector2(-270.69644, -198.83846)
-rotation = 1.5309768
+[node name="GeneratedGrass_0036" type="Node2D" parent="GrassPlacer4" unique_id=639666529 instance=ExtResource("5_u1fpq")]
+position = Vector2(151.29832, 33.052673)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0100" type="Node2D" parent="GrassPlacer" unique_id=2099068119 instance=ExtResource("5_u1fpq")]
-position = Vector2(-274.68518, -198.67953)
-rotation = 1.5309768
+[node name="GeneratedGrass_0037" type="Node2D" parent="GrassPlacer4" unique_id=481051923 instance=ExtResource("5_u1fpq")]
+position = Vector2(158.29515, 32.921265)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0101" type="Node2D" parent="GrassPlacer" unique_id=1491801679 instance=ExtResource("5_u1fpq")]
-position = Vector2(-278.67395, -198.52063)
-rotation = 1.5309768
+[node name="GeneratedGrass_0038" type="Node2D" parent="GrassPlacer4" unique_id=1245875130 instance=ExtResource("5_u1fpq")]
+position = Vector2(165.29198, 32.789886)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0102" type="Node2D" parent="GrassPlacer" unique_id=1568468490 instance=ExtResource("5_u1fpq")]
-position = Vector2(-282.66266, -198.36171)
-rotation = 1.5309768
+[node name="GeneratedGrass_0039" type="Node2D" parent="GrassPlacer4" unique_id=2053230849 instance=ExtResource("5_u1fpq")]
+position = Vector2(172.2888, 32.658478)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0103" type="Node2D" parent="GrassPlacer" unique_id=1312646029 instance=ExtResource("5_u1fpq")]
-position = Vector2(-286.65143, -198.2028)
-rotation = 1.5309768
+[node name="GeneratedGrass_0040" type="Node2D" parent="GrassPlacer4" unique_id=360344742 instance=ExtResource("5_u1fpq")]
+position = Vector2(179.28566, 32.5271)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0104" type="Node2D" parent="GrassPlacer" unique_id=2084651616 instance=ExtResource("5_u1fpq")]
-position = Vector2(-290.64014, -198.04388)
-rotation = 1.5309768
+[node name="GeneratedGrass_0041" type="Node2D" parent="GrassPlacer4" unique_id=518764161 instance=ExtResource("5_u1fpq")]
+position = Vector2(186.28249, 32.39569)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0105" type="Node2D" parent="GrassPlacer" unique_id=890011694 instance=ExtResource("5_u1fpq")]
-position = Vector2(-294.6289, -197.88496)
-rotation = 1.5309768
+[node name="GeneratedGrass_0042" type="Node2D" parent="GrassPlacer4" unique_id=174007316 instance=ExtResource("5_u1fpq")]
+position = Vector2(193.27931, 32.264282)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0106" type="Node2D" parent="GrassPlacer" unique_id=2123266626 instance=ExtResource("5_u1fpq")]
-position = Vector2(-298.61765, -197.72606)
-rotation = 1.5309768
+[node name="GeneratedGrass_0043" type="Node2D" parent="GrassPlacer4" unique_id=350546101 instance=ExtResource("5_u1fpq")]
+position = Vector2(200.27614, 32.132904)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0107" type="Node2D" parent="GrassPlacer" unique_id=762160431 instance=ExtResource("5_u1fpq")]
-position = Vector2(-302.60638, -197.56714)
-rotation = 1.5309768
+[node name="GeneratedGrass_0044" type="Node2D" parent="GrassPlacer4" unique_id=566654082 instance=ExtResource("5_u1fpq")]
+position = Vector2(207.273, 32.001495)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0108" type="Node2D" parent="GrassPlacer" unique_id=1617736001 instance=ExtResource("5_u1fpq")]
-position = Vector2(-306.59512, -197.40823)
-rotation = 1.5309768
+[node name="GeneratedGrass_0045" type="Node2D" parent="GrassPlacer4" unique_id=942278201 instance=ExtResource("5_u1fpq")]
+position = Vector2(214.26982, 31.870117)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0109" type="Node2D" parent="GrassPlacer" unique_id=787870694 instance=ExtResource("5_u1fpq")]
-position = Vector2(-310.58386, -197.24931)
-rotation = 1.5309768
+[node name="GeneratedGrass_0046" type="Node2D" parent="GrassPlacer4" unique_id=1008191521 instance=ExtResource("5_u1fpq")]
+position = Vector2(221.26665, 31.738708)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0110" type="Node2D" parent="GrassPlacer" unique_id=2035299860 instance=ExtResource("5_u1fpq")]
-position = Vector2(-314.5726, -197.0904)
-rotation = 1.5309768
+[node name="GeneratedGrass_0047" type="Node2D" parent="GrassPlacer4" unique_id=2139497853 instance=ExtResource("5_u1fpq")]
+position = Vector2(228.26347, 31.6073)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0111" type="Node2D" parent="GrassPlacer" unique_id=751700879 instance=ExtResource("5_u1fpq")]
-position = Vector2(-318.56134, -196.93149)
-rotation = 1.5309768
+[node name="GeneratedGrass_0048" type="Node2D" parent="GrassPlacer4" unique_id=530578803 instance=ExtResource("5_u1fpq")]
+position = Vector2(235.2603, 31.475922)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0112" type="Node2D" parent="GrassPlacer" unique_id=1000554473 instance=ExtResource("5_u1fpq")]
-position = Vector2(-322.55008, -196.77257)
-rotation = 1.5309768
+[node name="GeneratedGrass_0049" type="Node2D" parent="GrassPlacer4" unique_id=1791871905 instance=ExtResource("5_u1fpq")]
+position = Vector2(242.25716, 31.344513)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0113" type="Node2D" parent="GrassPlacer" unique_id=2134462853 instance=ExtResource("5_u1fpq")]
-position = Vector2(-326.53882, -196.61366)
-rotation = 1.5309768
+[node name="GeneratedGrass_0050" type="Node2D" parent="GrassPlacer4" unique_id=746336958 instance=ExtResource("5_u1fpq")]
+position = Vector2(249.25398, 31.213135)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
 
-[node name="GeneratedGrass_0114" type="Node2D" parent="GrassPlacer" unique_id=1298839708 instance=ExtResource("5_u1fpq")]
-position = Vector2(-330.5276, -196.45474)
-rotation = 1.5309768
+[node name="GeneratedGrass_0051" type="Node2D" parent="GrassPlacer4" unique_id=1234903027 instance=ExtResource("5_u1fpq")]
+position = Vector2(256.2508, 31.081726)
+rotation = -1.5895735
 script = ExtResource("6_sadf1")
 metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0052" type="Node2D" parent="GrassPlacer4" unique_id=1680022127 instance=ExtResource("5_u1fpq")]
+position = Vector2(263.24762, 30.950317)
+rotation = -1.5895735
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0053" type="Node2D" parent="GrassPlacer4" unique_id=1743503180 instance=ExtResource("5_u1fpq")]
+position = Vector2(270.24445, 30.81894)
+rotation = -1.5895735
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0054" type="Node2D" parent="GrassPlacer4" unique_id=377287194 instance=ExtResource("5_u1fpq")]
+position = Vector2(277.24133, 30.687561)
+rotation = -1.5895735
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0055" type="Node2D" parent="GrassPlacer4" unique_id=960516282 instance=ExtResource("5_u1fpq")]
+position = Vector2(284.23816, 30.933838)
+rotation = -1.1574659
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0056" type="Node2D" parent="GrassPlacer4" unique_id=890594810 instance=ExtResource("5_u1fpq")]
+position = Vector2(285.81232, 31.624268)
+rotation = -1.1574659
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0057" type="Node2D" parent="GrassPlacer4" unique_id=553028785 instance=ExtResource("5_u1fpq")]
+position = Vector2(286.84015, 32.075073)
+rotation = -1.1574659
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0058" type="Node2D" parent="GrassPlacer4" unique_id=556917025 instance=ExtResource("5_u1fpq")]
+position = Vector2(292.83508, 34.704437)
+rotation = -1.1574659
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0059" type="Node2D" parent="GrassPlacer4" unique_id=1157582745 instance=ExtResource("5_u1fpq")]
+position = Vector2(298.82996, 37.33377)
+rotation = -1.1574659
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0060" type="Node2D" parent="GrassPlacer4" unique_id=1453638572 instance=ExtResource("5_u1fpq")]
+position = Vector2(349.83167, 5.204834)
+rotation = -3.115003
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="GeneratedGrass_0061" type="Node2D" parent="GrassPlacer4" unique_id=910120128 instance=ExtResource("5_u1fpq")]
+position = Vector2(349.82605, 5.4153748)
+rotation = -3.115003
+script = ExtResource("6_sadf1")
+metadata/generated_by_grass_placer = true
+
+[node name="TerrainRock4" parent="." unique_id=203819581 instance=ExtResource("2_sadf1")]
+position = Vector2(-142.7656, -298.30084)
+polygon = PackedVector2Array(-54.234406, 9.300842, -24.234406, 2.3008423, 27.765594, -15.699158, 62.765594, -15.699158, 48.765594, 12.300842, -63.234406, 31.300842, -66.234406, 26.300842)
+
+[node name="TerrainDirt5" parent="." unique_id=305773574 instance=ExtResource("8_qgigk")]
+position = Vector2(2, -317)
+polygon = PackedVector2Array(-84.24881, 2.3658447, -27.24881, -0.6341553, 43.75119, 1.3658447, 87, 9, 115, 20, 65, 35, 46, 21, -28.24881, 20.365845, -74, 37, -102, 36)

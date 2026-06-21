@@ -4,14 +4,21 @@
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t5pw6"]
 resource_local_to_scene = true
-polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+polygon = PackedVector2Array(-16, -9, 18, -11, 10, 17, -21, 26)
 
 [node name="TerrainDarkRock" unique_id=738475140 instance=ExtResource("1_t5pw6")]
+polygon = PackedVector2Array(-16, -9, 18, -11, 10, 17, -21, 26)
 "可抓取" = false
+
+[node name="CollidePolygon2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1059130227) index="0" unique_id=411758791]
+polygon = PackedVector2Array(-16, -9, 18, -11, 10, 17, -21, 26)
 
 [node name="LightOccluder2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="0" unique_id=1573748164]
 occluder = SubResource("OccluderPolygon2D_t5pw6")
 
-[node name="VisualPolygon2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="1" unique_id=2021273492]
+[node name="VisualPolyLine" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="1" unique_id=265850612]
+points = PackedVector2Array(-16, -9, 18, -11, 10, 17, -21, 26)
+
+[node name="VisualPolygon2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="2" unique_id=2021273492]
 color = Color(0.19359115, 0.17196083, 0.34851778, 1)
-polygon = PackedVector2Array(-7, -7, 9, -7, 6, 7, -6, 6)
+polygon = PackedVector2Array(-16, -9, 18, -11, 10, 17, -21, 26)

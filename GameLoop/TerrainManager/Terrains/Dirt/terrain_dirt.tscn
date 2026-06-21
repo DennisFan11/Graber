@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://na8sywx60lwc"]
+
+[ext_resource type="PackedScene" uid="uid://cm6fnq0vnkij4" path="res://GameLoop/TerrainManager/Terrains/TerrainBase.tscn" id="1_yggat"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6i4d2"]
+resource_local_to_scene = true
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+
+[node name="TerrainDirt" unique_id=738475140 instance=ExtResource("1_yggat")]
+"可抓取" = false
+
+[node name="LightOccluder2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="0" unique_id=1573748164]
+occluder = SubResource("OccluderPolygon2D_6i4d2")
+
+[node name="VisualPolygon2D" parent="StaticBody2D/Visual" parent_id_path=PackedInt32Array(422527162) index="2" unique_id=2021273492]
+color = Color(0.7279513, 0.40030533, 9.62615e-07, 1)

@@ -36,13 +36,13 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_5x51k")
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody" unique_id=1089404847]
-zoom = Vector2(1.5, 1.5)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="RigidBody" unique_id=167984191]
 
 [node name="RayAudioListener" type="AudioListener2D" parent="RigidBody" unique_id=400614265]
 current = true
 script = ExtResource("4_t0g4x")
+rays_count = 31
 muffle_interpolation = 0.2
 metadata/_custom_type_script = "uid://d04qnapdd1u6u"
 
