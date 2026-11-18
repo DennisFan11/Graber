@@ -1,0 +1,5 @@
+Use your image generation tool to create ONE image and save it as a PNG file at Design/ConceptArt/00_prologue.png (relative to the current working directory). Do not modify any other files.
+
+The attached images are screenshots of the real game. The concept art must look like it belongs to the same game: same flat vector style, same stepped-band terrain edges, same protagonist design. Read Design/ConceptArt/_style.md and follow it.
+
+Scene (Prologue - the fall): Dusk on the canyon rim. A tiny flat-shaded cliffside hut with one warm lit window sits on the left rim near the top of the frame. The protagonist is tumbling down into the enormous canyon, small in the middle of the frame, its teal gooey arms flailing. Canyon walls are layered angular sandstone polygons with stepped edge bands, getting darker and bluer toward the bottom where the floor fades into navy darkness. Emphasize the dizzying height.

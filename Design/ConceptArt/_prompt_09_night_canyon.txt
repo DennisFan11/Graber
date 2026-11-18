@@ -1,0 +1,5 @@
+Use your image generation tool to create ONE image and save it as a PNG file at Design/ConceptArt/09_night_canyon.png (relative to the current working directory). Do not modify any other files.
+
+Attached: screenshots of the real game, a close-up of the protagonist, and 00_prologue.png which is the approved concept art. Match 00_prologue.png exactly in style: flat vector shapes, angular terrain with hard-stepped edge bands, same protagonist design (dark charcoal rounded-square body with one eye, teal gooey metaball arms, dark round hands with four grey finger pads), protagonist small in frame. Read Design/ConceptArt/_style.md and follow it.
+
+Scene: Chapter 9, Night Canyon. Night in a deep purple-black canyon with a starry sky strip above. A rope is stretched between two iron pitons across a smooth wall. Orange lanterns hang on the pitons, each casting a circle of warm light and long hard shadows. The protagonist traverses along the rope hand over hand.

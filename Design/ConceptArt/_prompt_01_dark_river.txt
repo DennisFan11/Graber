@@ -1,0 +1,5 @@
+Use your image generation tool to create ONE image and save it as a PNG file at Design/ConceptArt/01_dark_river.png (relative to the current working directory). Do not modify any other files.
+
+Attached: screenshots of the real game, a close-up of the protagonist, and 00_prologue.png which is the approved concept art. Match 00_prologue.png exactly in style: flat vector shapes, angular terrain with hard-stepped edge bands, same protagonist design (dark charcoal rounded-square body with one eye, teal gooey metaball arms, dark round hands with four grey finger pads), protagonist small in frame. Read Design/ConceptArt/_style.md and follow it.
+
+Scene: Chapter 1, Dark River at the canyon bottom. A cave almost pitch black in near-black navy. A flat teal underground river runs along the floor. The protagonist holds a warm orange lantern in one hand, its circle of light revealing pale climbable rocks, while nearly invisible darker rocks cannot be grabbed. A small iron hook is set in the wall. Above, a narrow vertical shaft rises into darkness, with another hook catching faint light. Long hard polygon shadows from the lantern.

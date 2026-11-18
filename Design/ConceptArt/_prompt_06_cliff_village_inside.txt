@@ -1,0 +1,5 @@
+Use your image generation tool to create ONE image and save it as a PNG file at Design/ConceptArt/06_cliff_village_inside.png (relative to the current working directory). Do not modify any other files.
+
+Attached: screenshots of the real game, a close-up of the protagonist, and 00_prologue.png which is the approved concept art. Match 00_prologue.png exactly in style: flat vector shapes, angular terrain with hard-stepped edge bands, same protagonist design (dark charcoal rounded-square body with one eye, teal gooey metaball arms, dark round hands with four grey finger pads), protagonist small in frame. Read Design/ConceptArt/_style.md and follow it.
+
+Scene: Chapter 6, Cliff Village inside. Interior of an abandoned cliff dwelling lit by the warm orange lantern. An old glass window is shattering as the protagonist bursts in from outside, flat glass shards flying. Inside: a wooden lever on the wall, a big wooden winch with a missing gear, old pottery, a small bed, hanging cloth and other belongings left behind. Calm, nostalgic mood.

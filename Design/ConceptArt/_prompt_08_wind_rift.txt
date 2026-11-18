@@ -1,0 +1,5 @@
+Use your image generation tool to create ONE image and save it as a PNG file at Design/ConceptArt/08_wind_rift.png (relative to the current working directory). Do not modify any other files.
+
+Attached: screenshots of the real game, a close-up of the protagonist, and 00_prologue.png which is the approved concept art. Match 00_prologue.png exactly in style: flat vector shapes, angular terrain with hard-stepped edge bands, same protagonist design (dark charcoal rounded-square body with one eye, teal gooey metaball arms, dark round hands with four grey finger pads), protagonist small in frame. Read Design/ConceptArt/_style.md and follow it.
+
+Scene: Chapter 8, Wind Rift. A wide open canyon gap in bright daylight under a natural sandstone arch. Ropes hang from the arch across the gap. Flat streaks of blown dust and sand show a strong sideways wind gust. The protagonist swings on one rope, reaching for the next.

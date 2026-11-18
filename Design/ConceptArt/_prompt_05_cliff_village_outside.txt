@@ -1,0 +1,5 @@
+Use your image generation tool to create ONE image and save it as a PNG file at Design/ConceptArt/05_cliff_village_outside.png (relative to the current working directory). Do not modify any other files.
+
+Attached: screenshots of the real game, a close-up of the protagonist, and 00_prologue.png which is the approved concept art. Match 00_prologue.png exactly in style: flat vector shapes, angular terrain with hard-stepped edge bands, same protagonist design (dark charcoal rounded-square body with one eye, teal gooey metaball arms, dark round hands with four grey finger pads), protagonist small in frame. Read Design/ConceptArt/_style.md and follow it.
+
+Scene: Chapter 5, Cliff Village outside. Abandoned adobe cliff dwellings built on sandstone ledges, warm afternoon side light, flat shapes. A wooden counterweight lift: a pulley at the top, a rope down to a pan holding a round stone, the other side a raised platform. The protagonist carries a round stone in one hand and climbs a ledge with the other.

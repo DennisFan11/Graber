@@ -1,0 +1,5 @@
+Use your image generation tool to create ONE image and save it as a PNG file at Design/ConceptArt/11_flash_flood.png (relative to the current working directory). Do not modify any other files.
+
+Attached: screenshots of the real game, a close-up of the protagonist, and 00_prologue.png which is the approved concept art. Match 00_prologue.png exactly in style: flat vector shapes, angular terrain with hard-stepped edge bands, same protagonist design (dark charcoal rounded-square body with one eye, teal gooey metaball arms, dark round hands with four grey finger pads), protagonist small in frame. Read Design/ConceptArt/_style.md and follow it.
+
+Scene: Chapter 11, Flash Flood. A storm: flat diagonal rain streaks, a lightning flash lighting the narrowing slot canyon. Flood water rises from below as flat churning teal bands with foam. A small campfire glows on a ledge above as a checkpoint. The protagonist climbs urgently between wet rocks.
