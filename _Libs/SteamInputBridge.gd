@@ -14,11 +14,9 @@ const STICK_ACTIONS := {
 	"R_HAND": [&"R_HAND_LEFT", &"R_HAND_RIGHT", &"R_HAND_UP", &"R_HAND_DOWN"],
 }
 const TRIGGER_ACTIONS: Array[StringName] = [&"L_GRAB", &"R_GRAB"]
-const BUTTON_ACTIONS: Array[StringName] = [&"L_WEAPON", &"R_WEAPON"]
 
 var _action_set_handle: int = 0
 var _analog_handles: Dictionary = {}
-var _digital_handles: Dictionary = {}
 var _last_strength: Dictionary = {}
 var _vibration_time_left: float = 0.0
 ## getConnectedControllers 每次呼叫都會印 log，所以快取起來每秒更新一次。
@@ -89,10 +87,6 @@ func _read_controller(input_handle: int, strengths: Dictionary) -> void:
 		var data: Dictionary = Steam.getAnalogActionData(input_handle, _analog_handles[String(action)])
 		_merge(strengths, action, data.get("x", 0.0))
 
-	for action: StringName in BUTTON_ACTIONS:
-		var data: Dictionary = Steam.getDigitalActionData(input_handle, _digital_handles[String(action)])
-		_merge(strengths, action, 1.0 if data.get("state", false) else 0.0)
-
 
 func _merge(strengths: Dictionary, action: StringName, value: float) -> void:
 	strengths[action] = maxf(strengths.get(action, 0.0), value)
@@ -122,9 +116,7 @@ func _resolve_handles() -> bool:
 		_analog_handles[steam_name] = Steam.getAnalogActionHandle(steam_name)
 	for action: StringName in TRIGGER_ACTIONS:
 		_analog_handles[String(action)] = Steam.getAnalogActionHandle(String(action))
-	for action: StringName in BUTTON_ACTIONS:
-		_digital_handles[String(action)] = Steam.getDigitalActionHandle(String(action))
-	print("[SteamInputBridge] handles: set=", _action_set_handle, " analog=", _analog_handles, " digital=", _digital_handles)
+	print("[SteamInputBridge] handles: set=", _action_set_handle, " analog=", _analog_handles)
 	return true
 
 

@@ -5,7 +5,6 @@ enum GRAB_TYPE {IDLE, AIR_GRAB, WALL_GRAB}
 
 @export var 柔性抓取反向力道: float = 1400.0
 
-@onready var _weapon_mounter: WeaponMounter = %WeaponMounter
 @onready var _grab_sensor: Area2D = %GrabSensor
 
 var grab_type: GRAB_TYPE = GRAB_TYPE.IDLE:
@@ -142,23 +141,3 @@ func release_grab_constraint(provider: Node) -> void:
 
 func _clear_grab_constraint_provider() -> void:
 	_grab_constraint_provider = null
-
-
-func mount_weapon(weapon: Weapon) -> bool:
-	return _weapon_mounter.mount_weapon(weapon)
-
-
-func unmount_weapon() -> void:
-	_weapon_mounter.unmount_weapon()
-
-
-func has_weapon() -> bool:
-	return _weapon_mounter.has_weapon()
-
-
-func use_weapon() -> bool:
-	return _weapon_mounter.use_weapon()
-
-
-func get_mounted_weapon() -> Weapon:
-	return _weapon_mounter.get_mounted_weapon()

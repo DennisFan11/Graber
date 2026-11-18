@@ -1,6 +1,6 @@
 class_name AudioRaycaster2D
 extends Node2D
-static var DEBUG_RAY: bool = true
+static var DEBUG_RAY: bool = false
 
 
 var listener: RayAudioListener

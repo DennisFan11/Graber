@@ -23,11 +23,6 @@
 				"L_GRAB"		"#Action_L_Grab"
 				"R_GRAB"		"#Action_R_Grab"
 			}
-			"Button"
-			{
-				"L_WEAPON"		"#Action_L_Weapon"
-				"R_WEAPON"		"#Action_R_Weapon"
-			}
 		}
 	}
 	"configurations"
@@ -49,8 +44,6 @@
 			"Action_R_Hand"		"Right Hand"
 			"Action_L_Grab"		"Left Grab"
 			"Action_R_Grab"		"Right Grab"
-			"Action_L_Weapon"		"Left Weapon Toggle"
-			"Action_R_Weapon"		"Right Weapon Toggle"
 		}
 		"tchinese"
 		{
@@ -59,8 +52,6 @@
 			"Action_R_Hand"		"右手"
 			"Action_L_Grab"		"左手抓取"
 			"Action_R_Grab"		"右手抓取"
-			"Action_L_Weapon"		"左手武器切換"
-			"Action_R_Weapon"		"右手武器切換"
 		}
 	}
 }

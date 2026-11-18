@@ -39,20 +39,22 @@ const 手臂半徑 := 56.0
 @onready var _hp_component: HpComponent = $HpComponent
 
 # Movement state
-var _smooth_targets: Array[Vector2] = [Vector2.ZERO, Vector2.ZERO]
+# 手的目標位置，以「相對身體的偏移」儲存，才不會在身體移動時落後
+var _smooth_offsets: Array[Vector2] = [Vector2.ZERO, Vector2.ZERO]
 
 # Grab state
 var _grab_joints: Array[DistanceJoint2D] = [null, null]
-var _weapon_use_pressed: Array[bool] = [false, false]
 
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
+	_body.can_sleep = false
 	for i in range(_hands.size()):
 		var hand = _hands[i]
-		_smooth_targets[i] = hand.global_position
+		hand.can_sleep = false
+		_smooth_offsets[i] = hand.global_position - _body.global_position
 
 
 func get_hp_component() -> HpComponent:
@@ -70,6 +72,9 @@ func _physics_process(delta: float) -> void:
 	_apply_body_upright_torque()
 
 	for i in range(_hands.size()):
+		_apply_arm_constraint(i, _hands[i], delta)
+
+	for i in range(_hands.size()):
 		var hand = _hands[i]
 		var input_vec = _get_hand_input(i)
 
@@ -82,7 +87,31 @@ func _physics_process(delta: float) -> void:
 			手部最大扭力
 		)
 		_update_target(i, hand, input_vec, delta)
-		_move_hand(i, hand, _smooth_targets[i], input_vec)
+		_move_hand(i, hand, _body.global_position + _smooth_offsets[i], input_vec)
+
+
+# 手臂長度上限的繩索約束（取代原本的 DistanceJointL/R）。
+# 揮手的力只施加在手上、沒有反作用力，等於是外力。只要手臂拉直時這個約束會拉動身體，
+# 手的外力就會經由手臂變成身體的升力（舉雙手就往上飄）。
+# 所以沒抓東西時，只把手拉回身體，身體不受手臂影響；
+# 抓牆時手固定在牆上，才由手臂拉動身體（攀爬）。
+func _apply_arm_constraint(i: int, hand: RigidHand, delta: float) -> void:
+	var offset := hand.global_position - _body.global_position
+	var distance := offset.length()
+	if distance <= 0.001:
+		return
+
+	var normal := offset / distance
+	var relative_speed := (hand.linear_velocity - _body.linear_velocity).dot(normal)
+	# 讓下一幀的距離剛好回到手臂半徑；只拉不推（繩索）
+	var velocity_change := (手臂半徑 - distance) / delta - relative_speed
+	if velocity_change >= 0.0:
+		return
+
+	if _is_grabbing(i):
+		_body.linear_velocity -= normal * velocity_change
+	else:
+		hand.linear_velocity += normal * velocity_change
 
 
 func _apply_body_upright_torque() -> void:
@@ -97,29 +126,20 @@ func _update_target(i: int, hand: RigidHand, input_vec: Vector2, delta: float) -
 		return
 
 	if input_vec.length() < 輸入死區:
-		_smooth_targets[i] = hand.global_position
+		_smooth_offsets[i] = hand.global_position - _body.global_position
 		return
 
+	# 在身體座標中平滑。若用世界座標平滑，身體下墜時目標會落後在身體上方，
+	# 超出手臂長度，手被一直往上拉，再透過手臂把身體吊上去 → 舉手往上飄。
 	var strength := clampf(input_vec.length(), 0.0, 1.0)
-	var target := _body.global_position + input_vec.normalized() * 手臂半徑 * strength
-	_smooth_targets[i] = _smooth_targets[i].lerp(
-		target,
+	var target_offset := input_vec.normalized() * 手臂半徑 * strength
+	_smooth_offsets[i] = _smooth_offsets[i].lerp(
+		target_offset,
 		1.0 - exp(-目標跟隨速度 * delta)
 	)
 
 
 func _update_grab_state(i: int, hand: RigidHand) -> void:
-	if hand.has_weapon():
-		if _is_grabbing(i):
-			_stop_wall_grab(i, hand)
-		hand.grab_type = RigidHand.GRAB_TYPE.IDLE
-		var use_pressed := Input.is_action_pressed(GRAB_ACTIONS[i])
-		if use_pressed and not _weapon_use_pressed[i]:
-			hand.use_weapon()
-		_weapon_use_pressed[i] = use_pressed
-		return
-
-	_weapon_use_pressed[i] = false
 	if Input.is_action_pressed(GRAB_ACTIONS[i]):
 		if not _is_grabbing(i) and _is_touching_grab_surface(hand):
 			_start_wall_grab(i, hand)
@@ -181,39 +201,6 @@ func _remove_grab_joint(i: int) -> void:
 
 func _is_grabbing(i: int) -> bool:
 	return is_instance_valid(_grab_joints[i])
-
-
-func equip_weapon(hand_index: int, weapon: Weapon) -> bool:
-	var hand := _get_hand(hand_index)
-	if hand == null:
-		return false
-
-	if _is_grabbing(hand_index):
-		_stop_wall_grab(hand_index, hand)
-
-	var mounted := hand.mount_weapon(weapon)
-	if mounted:
-		_weapon_use_pressed[hand_index] = Input.is_action_pressed(GRAB_ACTIONS[hand_index])
-	return mounted
-
-
-func unequip_weapon(hand_index: int) -> void:
-	var hand := _get_hand(hand_index)
-	if hand != null:
-		hand.unmount_weapon()
-		_weapon_use_pressed[hand_index] = false
-
-
-func get_mounted_weapon(hand_index: int) -> Weapon:
-	var hand := _get_hand(hand_index)
-	return hand.get_mounted_weapon() if hand != null else null
-
-
-func _get_hand(hand_index: int) -> RigidHand:
-	if hand_index < 0 or hand_index >= _hands.size():
-		push_error("[Player] Invalid hand index: %s" % hand_index)
-		return null
-	return _hands[hand_index]
 
 
 func _start_wall_grab_vibration(hand_index: int) -> void:

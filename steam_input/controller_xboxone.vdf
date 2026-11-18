@@ -50,40 +50,6 @@
 			"InGameControls"		"R_GRAB"
 		}
 	}
-	"group"
-	{
-		"id"		"4"
-		"mode"		"switches"
-		"inputs"
-		{
-			"left_bumper"
-			{
-				"activators"
-				{
-					"Full_Press"
-					{
-						"bindings"
-						{
-							"binding"		"game_action InGameControls L_WEAPON"
-						}
-					}
-				}
-			}
-			"right_bumper"
-			{
-				"activators"
-				{
-					"Full_Press"
-					{
-						"bindings"
-						{
-							"binding"		"game_action InGameControls R_WEAPON"
-						}
-					}
-				}
-			}
-		}
-	}
 	"preset"
 	{
 		"id"		"0"
@@ -94,7 +60,6 @@
 			"1"		"right_joystick active"
 			"2"		"left_trigger active"
 			"3"		"right_trigger active"
-			"4"		"switch active"
 		}
 	}
 	"settings"
