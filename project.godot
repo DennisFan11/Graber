@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 DI="*uid://dcyj744h35qmf"
+SteamInit="*res://_Libs/SteamInit.gd"
+SteamInputBridge="*res://_Libs/SteamInputBridge.gd"
 
 [display]
 

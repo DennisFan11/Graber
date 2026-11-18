@@ -231,6 +231,7 @@ func _start_wall_grab_vibration(hand_index: int) -> void:
 			strong_strength,
 			wall_grab_vibration_duration
 		)
+	SteamInputBridge.vibrate(weak_strength, strong_strength, wall_grab_vibration_duration)
 
 
 func _is_touching_grab_surface(hand: RigidHand) -> bool:

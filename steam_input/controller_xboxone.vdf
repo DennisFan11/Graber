@@ -1,0 +1,103 @@
+"controller_mappings"
+{
+	"version"		"3"
+	"revision"		"1"
+	"title"		"GRABER Default"
+	"description"		"Default GRABER layout"
+	"creator"		"0"
+	"controller_type"		"controller_xboxone"
+	"actions"
+	{
+		"InGameControls"
+		{
+			"title"		"#Set_InGame"
+			"legacy_set"		"0"
+		}
+	}
+	"group"
+	{
+		"id"		"0"
+		"mode"		"joystick_move"
+		"gameactions"
+		{
+			"InGameControls"		"L_HAND"
+		}
+	}
+	"group"
+	{
+		"id"		"1"
+		"mode"		"joystick_move"
+		"gameactions"
+		{
+			"InGameControls"		"R_HAND"
+		}
+	}
+	"group"
+	{
+		"id"		"2"
+		"mode"		"trigger"
+		"gameactions"
+		{
+			"InGameControls"		"L_GRAB"
+		}
+	}
+	"group"
+	{
+		"id"		"3"
+		"mode"		"trigger"
+		"gameactions"
+		{
+			"InGameControls"		"R_GRAB"
+		}
+	}
+	"group"
+	{
+		"id"		"4"
+		"mode"		"switches"
+		"inputs"
+		{
+			"left_bumper"
+			{
+				"activators"
+				{
+					"Full_Press"
+					{
+						"bindings"
+						{
+							"binding"		"game_action InGameControls L_WEAPON"
+						}
+					}
+				}
+			}
+			"right_bumper"
+			{
+				"activators"
+				{
+					"Full_Press"
+					{
+						"bindings"
+						{
+							"binding"		"game_action InGameControls R_WEAPON"
+						}
+					}
+				}
+			}
+		}
+	}
+	"preset"
+	{
+		"id"		"0"
+		"name"		"InGameControls"
+		"group_source_bindings"
+		{
+			"0"		"joystick active"
+			"1"		"right_joystick active"
+			"2"		"left_trigger active"
+			"3"		"right_trigger active"
+			"4"		"switch active"
+		}
+	}
+	"settings"
+	{
+	}
+}

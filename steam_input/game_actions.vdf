@@ -1,0 +1,66 @@
+"In Game Actions"
+{
+	"actions"
+	{
+		"InGameControls"
+		{
+			"title"		"#Set_InGame"
+			"StickPadGyro"
+			{
+				"L_HAND"
+				{
+					"title"		"#Action_L_Hand"
+					"input_mode"		"joystick_move"
+				}
+				"R_HAND"
+				{
+					"title"		"#Action_R_Hand"
+					"input_mode"		"joystick_move"
+				}
+			}
+			"AnalogTrigger"
+			{
+				"L_GRAB"		"#Action_L_Grab"
+				"R_GRAB"		"#Action_R_Grab"
+			}
+			"Button"
+			{
+				"L_WEAPON"		"#Action_L_Weapon"
+				"R_WEAPON"		"#Action_R_Weapon"
+			}
+		}
+	}
+	"configurations"
+	{
+		"controller_xboxone"
+		{
+			"0"
+			{
+				"path"		"controller_xboxone.vdf"
+			}
+		}
+	}
+	"localization"
+	{
+		"english"
+		{
+			"Set_InGame"		"In-Game Controls"
+			"Action_L_Hand"		"Left Hand"
+			"Action_R_Hand"		"Right Hand"
+			"Action_L_Grab"		"Left Grab"
+			"Action_R_Grab"		"Right Grab"
+			"Action_L_Weapon"		"Left Weapon Toggle"
+			"Action_R_Weapon"		"Right Weapon Toggle"
+		}
+		"tchinese"
+		{
+			"Set_InGame"		"遊戲操作"
+			"Action_L_Hand"		"左手"
+			"Action_R_Hand"		"右手"
+			"Action_L_Grab"		"左手抓取"
+			"Action_R_Grab"		"右手抓取"
+			"Action_L_Weapon"		"左手武器切換"
+			"Action_R_Weapon"		"右手武器切換"
+		}
+	}
+}
